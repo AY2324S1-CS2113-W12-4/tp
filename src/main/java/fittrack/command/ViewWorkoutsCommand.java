@@ -3,12 +3,12 @@ package fittrack.command;
 import fittrack.parser.CommandParser;
 
 public class ViewWorkoutsCommand extends Command {
-    public static final String COMMAND_WORD = "viewWorkouts";
+    public static final String COMMAND_WORD = "viewworkouts";
     private static final String DESCRIPTION =
-            String.format("'%s' shows the list of all workouts.", COMMAND_WORD);
+            String.format("`%s` shows the list of all workouts.", COMMAND_WORD);
     private static final String USAGE =
-            String.format("Type '%s' to view the list of your workouts.", COMMAND_WORD);
-    private static final String HELP = DESCRIPTION + "\n" + USAGE;
+            String.format("Type `%s` to view the list of your workouts.", COMMAND_WORD);
+    public static final String HELP = DESCRIPTION + "\n" + USAGE;
 
     /**
      * Execute the command

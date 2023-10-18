@@ -35,7 +35,7 @@ public class EditProfileCommandTest {
         EditProfileCommand editProfileCommand = new EditProfileCommand();
 
         String expectedHelpMessage = "`editprofile` allows you to edit your profile." +
-                "\nType `editprofile` h/<height> w/<weight>";
+                "\nType `editprofile h/<HEIGHT> w/<WEIGHT> l/<CALORIE_LIMIT>` to edit.";
 
         String actualHelpMessage = editProfileCommand.getHelp();
 
