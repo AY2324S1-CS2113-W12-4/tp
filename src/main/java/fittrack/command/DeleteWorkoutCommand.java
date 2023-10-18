@@ -16,9 +16,7 @@ public class DeleteWorkoutCommand extends Command {
 
     @Override
     public void setArguments(String args, CommandParser parser) {
-        String[] input = args.split(" ");
-        index = Integer.parseInt(input[1]);
-        System.out.println(index);
+        index = Integer.parseInt(args);
     }
 
     @Override
