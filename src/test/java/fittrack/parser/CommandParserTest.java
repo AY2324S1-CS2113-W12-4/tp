@@ -63,10 +63,10 @@ class CommandParserTest {
     void parseProfile_h180w80l2000_success() {
         try {
             UserProfile profile = new CommandParser().parseProfile("h/180 w/80 l/2000");
-            assertEquals(180., profile.getHeight());
-            assertEquals(80., profile.getWeight());
-            assertEquals(2000., profile.getDailyCalorieLimit());
-        } catch (PatternMatchFailException | NumberFormatException e) {
+            assertEquals(180.0, profile.getHeight().value);
+            assertEquals(80.0, profile.getWeight().value);
+            assertEquals(2000.0, profile.getDailyCalorieLimit().value);
+        } catch (PatternMatchFailException | NegativeNumberException | NumberFormatException e) {
             throw new RuntimeException(e);
         }
     }
@@ -81,6 +81,7 @@ class CommandParserTest {
         assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 w/80 l/2000"));
         assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 80 2000"));
         assertThrows(NumberFormatException.class, () -> parser.parseProfile("h/180 w/eighty l/2000"));
+        assertThrows(NegativeNumberException.class, () -> parser.parseProfile("h/-180 w/80 l/2000"));
     }
 
     @Test

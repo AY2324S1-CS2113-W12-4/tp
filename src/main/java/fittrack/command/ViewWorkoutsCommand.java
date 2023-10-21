@@ -16,7 +16,7 @@ public class ViewWorkoutsCommand extends Command {
      */
     @Override
     public CommandResult execute() {
-        String feedback = "These are the workouts you have done: \n" +
+        String feedback = "These are the workouts you have done:\n" +
                 workoutList.toString();
 
         return new CommandResult(feedback);

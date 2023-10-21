@@ -2,18 +2,17 @@ package fittrack.command;
 
 import fittrack.parser.CommandParser;
 
-public class ViewMealsCommand extends Command {
-    public static final String COMMAND_WORD = "viewmeals";
+public class BmiCommand extends Command {
+    public static final String COMMAND_WORD = "bmi";
     private static final String DESCRIPTION =
-            String.format("`%s` shows the list of all meals.", COMMAND_WORD);
+            String.format("`%s` calculates your current BMI.", COMMAND_WORD);
     private static final String USAGE =
-            String.format("Type `%s` to view the list of meals.", COMMAND_WORD);
+            String.format("Type `%s` to view your BMI.", COMMAND_WORD);
     public static final String HELP = DESCRIPTION + "\n" + USAGE;
 
     @Override
     public CommandResult execute() {
-        String feedback = "These are the meals you have consumed:\n" + mealList.toString();
-        return new CommandResult(feedback);
+        return new CommandResult(String.format("Your current BMI is %.2f", userProfile.getBmi()));
     }
 
     @Override

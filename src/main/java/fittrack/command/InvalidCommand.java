@@ -3,22 +3,27 @@ package fittrack.command;
 import fittrack.parser.CommandParser;
 
 public class InvalidCommand extends Command {
-    private final String inputLine;
-    private HelpCommand helpCommand;
+    public static final String MESSAGE_INVALID_COMMAND = "`%s` is an invalid command.";
 
-    public InvalidCommand(String inputLine) {
-        this.inputLine = inputLine;
-    }
+    private String helpMessage;
 
     @Override
     public CommandResult execute() {
-        return helpCommand.execute();
+        return new CommandResult(helpMessage);
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser) {
-        helpCommand = new HelpCommand();
+    public void setArguments(String inputLine, CommandParser parser) {
+        HelpCommand helpCommand = new HelpCommand();
         helpCommand.setArguments(inputLine, parser);
+        String message = helpCommand.execute().getFeedback();
+
+        if (helpCommand.getCommandType() == InvalidCommand.class) {
+            helpMessage = message;
+        } else {
+            helpMessage = String.format(MESSAGE_INVALID_COMMAND, inputLine) + "\n" + message;
+        }
+
     }
 
     @Override

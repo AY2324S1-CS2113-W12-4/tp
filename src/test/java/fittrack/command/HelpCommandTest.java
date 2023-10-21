@@ -3,7 +3,8 @@ package fittrack.command;
 import fittrack.parser.CommandParser;
 import org.junit.jupiter.api.Test;
 
-import static fittrack.command.HelpCommand.MESSAGE_INVALID_COMMAND;
+import static fittrack.command.HelpCommand.USAGE;
+import static fittrack.command.InvalidCommand.MESSAGE_INVALID_COMMAND;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HelpCommandTest {
@@ -41,6 +42,9 @@ class HelpCommandTest {
     void setArguments_foo_invalidCmdMsg() {
         HelpCommand helpCommand = new HelpCommand();
         helpCommand.setArguments("foo", new CommandParser());
-        assertEquals(String.format(MESSAGE_INVALID_COMMAND, "foo"), helpCommand.getHelpMessage());
+        assertEquals(
+                String.format(MESSAGE_INVALID_COMMAND, "foo") + "\n" + USAGE, 
+                helpCommand.getHelpMessage()
+        );
     }
 }

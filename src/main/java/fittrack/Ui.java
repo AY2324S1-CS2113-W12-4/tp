@@ -15,6 +15,8 @@ public class Ui {
                                      + " \\___  /   |__||__|  |____|   |__|  (____  /\\___  >__|_ \\";
 
 
+    private static final String LINE = "____________________________________________________________";
+
     private final Scanner in;
 
     /**
@@ -46,9 +48,14 @@ public class Ui {
         System.out.println();
     }
 
+    public void printLine() {
+        System.out.println(LINE);
+    }
+
     public void printWelcome() {
         System.out.println("Welcome to FitTrack!");
         System.out.println(LOGO);
+        printLine();
     }
 
     public void printCommandResult(CommandResult commandResult) {
@@ -57,14 +64,14 @@ public class Ui {
     }
 
     /**
-     * Prints greetings to user and the profile of the user.
+     * Prints the profile details of the user after user has
+     * entered details for the first time.
      *
      * @param profile user profile
      */
     public void printProfileDetails(UserProfile profile) {
         System.out.println("Here are your profile settings.");
-        System.out.println("Height: " + profile.getHeight());
-        System.out.println("Weight: " + profile.getWeight());
-        System.out.println("Daily calorie surplus limit: " + profile.getDailyCalorieLimit());
+        System.out.println("Height: " + profile.toString());
+        printLine();
     }
 }

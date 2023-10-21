@@ -1,20 +1,22 @@
 package fittrack;
 
+import fittrack.data.Meal;
+
 import java.util.ArrayList;
 
 public class MealList {
 
-    private static ArrayList<Meal> mealList;
+    private ArrayList<Meal> mealList;
 
     public MealList() {
         mealList = new ArrayList<>();
     }
 
-    public static void addToList(Meal newMeal) {
+    public void addToList(Meal newMeal) {
         mealList.add(newMeal);
     }
 
-    public static void deleteMeal(int mealIndex) {
+    public void deleteMeal(int mealIndex) {
         mealList.remove((mealIndex - 1));
     }
     @Override

@@ -1,27 +1,28 @@
 package fittrack;
 
+import fittrack.data.Workout;
+
 import java.util.ArrayList;
 
 public class WorkoutList {
-
-    private static ArrayList<Workout> workoutList;
-    private static int workoutListSize = 0;
+    private int workoutListSize = 0;
+    private ArrayList<Workout> workoutList;
 
     public WorkoutList() {
         workoutList = new ArrayList<>();
     }
 
-    public static void addToList(Workout newWorkout) {
+    public void addToList(Workout newWorkout) {
         workoutList.add(newWorkout);
         workoutListSize++;
     }
 
-    public static void deleteWorkout(int workoutIndex) {
+    public void deleteWorkout(int workoutIndex) {
         workoutList.remove((workoutIndex - 1));
         workoutListSize--;
     }
 
-    public static int getWorkoutListSize() {
+    public int getWorkoutListSize() {
         return workoutListSize;
     }
 

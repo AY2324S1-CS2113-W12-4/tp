@@ -2,6 +2,7 @@ package fittrack.command;
 
 import fittrack.UserProfile;
 import fittrack.parser.CommandParser;
+import fittrack.parser.NegativeNumberException;
 import fittrack.parser.NumberFormatException;
 import fittrack.parser.PatternMatchFailException;
 
@@ -20,12 +21,12 @@ public class EditProfileCommand extends Command {
         userProfile.setHeight(newProfile.getHeight());
         userProfile.setWeight(newProfile.getWeight());
         userProfile.setDailyCalorieLimit(newProfile.getDailyCalorieLimit());
-        return new CommandResult("I've edited the following:" + "\n" + userProfile.toString());
+        return new CommandResult("Here is your updated profile:\n" + userProfile.toString());
     }
 
     @Override
     public void setArguments(String args, CommandParser parser)
-            throws PatternMatchFailException, NumberFormatException {
+            throws PatternMatchFailException, NumberFormatException, NegativeNumberException {
         newProfile = parser.parseProfile(args);
     }
 
