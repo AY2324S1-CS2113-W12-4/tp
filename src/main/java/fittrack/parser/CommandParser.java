@@ -44,6 +44,7 @@ public class CommandParser {
         try {
             command.setArguments(args, this);
         } catch (ParseException e) {
+            System.out.println(e.getMessage());
             return getInvalidCommand(userCommandLine);
         }
         return command;
@@ -74,7 +75,6 @@ public class CommandParser {
             return new ViewWorkoutsCommand();
         default:
             return new InvalidCommand(word);
-
         }
     }
 

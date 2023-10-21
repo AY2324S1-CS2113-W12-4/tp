@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class WorkoutList {
 
     private static ArrayList<Workout> workoutList;
+    private static int workoutListSize = 0;
 
     public WorkoutList() {
         workoutList = new ArrayList<>();
@@ -12,10 +13,16 @@ public class WorkoutList {
 
     public static void addToList(Workout newWorkout) {
         workoutList.add(newWorkout);
+        workoutListSize++;
     }
 
     public static void deleteWorkout(int workoutIndex) {
         workoutList.remove((workoutIndex - 1));
+        workoutListSize--;
+    }
+
+    public static int getWorkoutListSize() {
+        return workoutListSize;
     }
 
     @Override
