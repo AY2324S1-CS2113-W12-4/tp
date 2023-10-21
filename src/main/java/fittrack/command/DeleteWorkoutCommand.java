@@ -4,8 +4,6 @@ import fittrack.data.Workout;
 import fittrack.parser.CommandParser;
 import fittrack.parser.ParseException;
 
-import java.util.Arrays;
-
 public class DeleteWorkoutCommand extends Command {
     public static final String COMMAND_WORD = "deleteworkout";
     private static final String DESCRIPTION =
