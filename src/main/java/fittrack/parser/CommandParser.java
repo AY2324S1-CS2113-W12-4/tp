@@ -21,12 +21,7 @@ import fittrack.command.ViewProfileCommand;
 import fittrack.command.ViewWorkoutsCommand;
 import fittrack.command.FindMealCommand;
 import fittrack.command.FindWorkoutCommand;
-import fittrack.data.Meal;
-import fittrack.data.Workout;
-import fittrack.data.Calories;
-import fittrack.data.Date;
-import fittrack.data.Height;
-import fittrack.data.Weight;
+import fittrack.data.*;
 
 import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
@@ -51,7 +46,7 @@ public class CommandParser {
             "(?<word>\\S+)(?<args>.*)"
     );
     private static final Pattern PROFILE_PATTERN = Pattern.compile(
-            "h/(?<height>\\S+)\\s+w/(?<weight>\\S+)\\s+l/(?<calLimit>\\S+)"
+            "h/(?<height>\\S+)\\s+w/(?<weight>\\S+)\\s+g/(?<gender>\\S+)\\s+l/(?<calLimit>\\S+)"
     );
     private static final Pattern MEAL_PATTERN = Pattern.compile(
             "(?<name>.+)\\s+c/(?<calories>\\S+)(\\s+d/(?<date>\\S+))?"
@@ -167,6 +162,7 @@ public class CommandParser {
             final double height = Double.parseDouble(matcher.group("height"));
             final double weight = Double.parseDouble(matcher.group("weight"));
             final double dailyCalorieLimit = Double.parseDouble(matcher.group("calLimit"));
+            final char gender = matcher.group("gender").charAt(0);
 
             // Height, weight and calories cannot be negative. Throw exception if it happens
             if (height < 0 || weight < 0 || dailyCalorieLimit < 0) {
@@ -176,8 +172,9 @@ public class CommandParser {
             Height heightData = new Height(height);
             Weight weightData = new Weight(weight);
             Calories caloriesData = new Calories(dailyCalorieLimit);
+            Gender genderData = new Gender(gender);
 
-            return new UserProfile(heightData, weightData, caloriesData);
+            return new UserProfile(heightData, weightData, caloriesData, genderData);
         } catch (java.lang.NumberFormatException e) {
             throw new NumberFormatException();
         }

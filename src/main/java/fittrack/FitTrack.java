@@ -112,7 +112,7 @@ public class FitTrack {
     private void profileSettings()
             throws PatternMatchFailException, NumberFormatException, NegativeNumberException {
         System.out.println(
-                "Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):"
+                "Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):"
         );
         String input = ui.scanNextLine();
 
@@ -122,6 +122,7 @@ public class FitTrack {
         userProfile.setHeight(profile.getHeight());
         userProfile.setWeight(profile.getWeight());
         userProfile.setDailyCalorieLimit(profile.getDailyCalorieLimit());
+        userProfile.setGender(profile.getGender());
 
         ui.printProfileDetails(userProfile);
     }
