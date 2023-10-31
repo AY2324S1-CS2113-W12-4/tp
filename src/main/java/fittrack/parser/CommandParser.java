@@ -21,7 +21,14 @@ import fittrack.command.ViewProfileCommand;
 import fittrack.command.ViewWorkoutsCommand;
 import fittrack.command.FindMealCommand;
 import fittrack.command.FindWorkoutCommand;
-import fittrack.data.*;
+import fittrack.data.Gender;
+import fittrack.data.Meal;
+import fittrack.data.Weight;
+import fittrack.data.Height;
+import fittrack.data.Calories;
+import fittrack.data.Workout;
+import fittrack.data.Date;
+
 
 import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;

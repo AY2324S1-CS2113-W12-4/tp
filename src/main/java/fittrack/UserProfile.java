@@ -1,6 +1,10 @@
 package fittrack;
 
-import fittrack.data.*;
+import fittrack.data.Gender;
+import fittrack.data.Weight;
+import fittrack.data.Height;
+import fittrack.data.Calories;
+import fittrack.data.Bmi;
 
 public class UserProfile {
     private Height height;
