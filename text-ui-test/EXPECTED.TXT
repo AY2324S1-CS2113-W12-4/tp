@@ -7,26 +7,27 @@ ___________.__  __ ___________                     __
  \___  /   |__||__|  |____|   |__|  (____  /\___  >__|_ \
 ____________________________________________________________
 Directory created: data
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
 Please enter numbers for height, weight, and daily calorie limit.
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
 Please enter a number greater than 0
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
 Please enter a number greater than 0
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
+Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
+Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
+Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
+Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
 Here are your profile settings.
 Height: Height: 180.0cm
 Weight: 80.0kg
 Daily calorie limit: 2000kcal
 BMI: 24.69
+Gender: Male
 ____________________________________________________________
 `viewprofile 123` is an invalid command.
 `viewprofile` shows all profile details.
@@ -37,25 +38,28 @@ Height: 180.0cm
 Weight: 80.0kg
 Daily calorie limit: 2000kcal
 BMI: 24.69
+Gender: Male
 
 Here is your updated profile:
 Height: 170.0cm
 Weight: 70.0kg
 Daily calorie limit: 1500kcal
 BMI: 24.22
+Gender: Male
 
-`editprofileh/120w/80l/100` is an invalid command.
+`editprofileh/120w/80g/Ml/100` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
 
-`editprofile h/-180 w/70 l/1000` is an invalid command.
+`editprofile h/-180 w/70 g/K l/1000` is an invalid command.
 `editprofile` allows you to edit your profile.
-Type `editprofile h/<HEIGHT> w/<WEIGHT> l/<CALORIE_LIMIT>` to edit.
+Type `editprofile h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>` to edit.
 
 Your Profile:
 Height: 170.0cm
 Weight: 70.0kg
 Daily calorie limit: 1500kcal
 BMI: 24.22
+Gender: Male
 
 Your current BMI is 24.22
 BMI falls under NORMAL WEIGHT category
@@ -129,7 +133,7 @@ help, exit, editprofile, viewprofile, addmeal, deletemeal, viewmeals, addworkout
 Type `help` or `help <COMMAND>` to view help.
 
 `editprofile` allows you to edit your profile.
-Type `editprofile h/<HEIGHT> w/<WEIGHT> l/<CALORIE_LIMIT>` to edit.
+Type `editprofile h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>` to edit.
 
 `viewprofile` shows all profile details.
 Type `viewprofile` to view your profile.

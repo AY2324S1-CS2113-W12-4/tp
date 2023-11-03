@@ -73,7 +73,7 @@ public class FitTrack {
                 profileSettings();
                 isValidInput = true;
             } catch (PatternMatchFailException e) {
-                System.out.println("Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>");
+                System.out.println("Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter numbers for height, weight, and daily calorie limit.");
             } catch (NegativeNumberException e) {

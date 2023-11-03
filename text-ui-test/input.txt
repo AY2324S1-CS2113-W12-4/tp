@@ -1,16 +1,16 @@
-h/180 w/eighty l/2000
-h/-180 w/80 l/2000
-h/-180 w/-80 l/-2000
-h/ w/ l/
-h/180 w/ l/2000
-180 w/80 l/20000
+h/180 w/eighty g/M l/2000
+h/-180 w/80 g/M l/2000
+h/-180 w/-80 g/M l/-2000
+h/ w/ g/ l/
+h/180 w/ g/M l/2000
+180 w/80 g/M l/20000
 180 80 2000
-h/180 w/80 l/2000
+h/180 w/80 g/M l/2000
 viewprofile 123
 viewprofile
-editprofile h/170 w/70 l/1500
-editprofileh/120w/80l/100
-editprofile h/-180 w/70 l/1000
+editprofile h/170 w/70 g/M l/1500
+editprofileh/120w/80g/Ml/100
+editprofile h/-180 w/70 g/K l/1000
 viewprofile
 bmi
 bmi 30f
