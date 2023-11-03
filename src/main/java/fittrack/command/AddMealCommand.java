@@ -35,6 +35,10 @@ public class AddMealCommand extends Command {
         newMeal = parser.parseMeal(args);
     }
 
+    public Meal getMeal(){
+        return newMeal;
+    }
+
     @Override
     protected String getHelp() {
         return HELP;

@@ -4,15 +4,12 @@ import fittrack.MealList;
 import fittrack.data.Calories;
 import fittrack.data.Date;
 import fittrack.data.Meal;
-import fittrack.parser.CommandParser;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CalorieSumCommandTest {
-
-    private final CommandParser parser = new CommandParser();
     private final MealList mealList = new MealList();
 
     @BeforeEach

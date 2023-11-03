@@ -26,6 +26,7 @@ public class FindWorkoutCommand extends Command {
     public CommandResult execute() {
         ArrayList<Workout> workouts = workoutList.getWorkoutList();
         int workoutNum = 0;
+        int numFound = 0;
         boolean workoutFound = false;
         for (Workout workout : workouts) {
             if (workout.getName().contains(keyword)) {
@@ -34,13 +35,14 @@ public class FindWorkoutCommand extends Command {
                     ui.printFoundMessage("workouts", keyword);
                 }
                 ui.printWorkoutWithNumber(workoutNum, workout);
+                numFound++;
             }
             workoutNum++;
         }
         if (!workoutFound) {
             return new CommandResult("Sorry, there are no such workouts found.");
         }
-        return new CommandResult("");
+        return new CommandResult("There are " + numFound + " workouts that contains " + keyword);
     }
 
     @Override

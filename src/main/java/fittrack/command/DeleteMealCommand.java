@@ -32,6 +32,7 @@ public class DeleteMealCommand extends Command {
         mealList.deleteMeal(mealIndex);
         return new CommandResult("I've deleted the following meal:" + "\n" + toDelete.toString());
     }
+    // @@author
 
     // @@author NgLixuanNixon
     @Override
@@ -39,6 +40,7 @@ public class DeleteMealCommand extends Command {
             throws PatternMatchFailException, NumberFormatException {
         mealIndex = parser.parseIndex(args);
     }
+    // @@author
 
     @Override
     protected String getHelp() {

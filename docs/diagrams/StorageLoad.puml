@@ -1,50 +1,75 @@
 @startuml
+!include style.puml
+
 title Main Structure of Storage Load\n
 
-participant ":FitTrack" as main
-participant ":Storage" as storage
-participant "ui: Ui" as ui
-participant ":UserProfileDecoder" as pDecoder
-participant ":MealListDecoder" as mDecoder
-participant ":WorkoutListDecoder" as wDecoder
+participant ":FitTrack" as main MODEL_COLOR
+participant ":Storage" as storage STORAGE_COLOR
+participant "ui: Ui" as ui UI_COLOR
+participant ":UserProfileDecoder" as pDecoder STORAGE_COLOR_T1
+participant ":MealListDecoder" as mDecoder STORAGE_COLOR_T2
+participant ":WorkoutListDecoder" as wDecoder STORAGE_COLOR_T3
 
 main -> main ++: start()
-main -> ui ++: ui.printWelcome()
+activate main MODEL_COLOR
+main -[MODEL_COLOR]> ui ++: ui.printWelcome()
+activate ui UI_COLOR
 note right: prints welcome message to user
 return
+deactivate ui
 
 group opt [!storage.isProfileFileEmpty]
-    main -> storage ++: isProfileFileEmpty()
+    main -[MODEL_COLOR]> storage ++: isProfileFileEmpty()
+    activate storage STORAGE_COLOR
     note right: checks for profile data from previous run
     return :boolean
+    deactivate storage
 
-    main -> storage ++: profileLoad()
+    main -[MODEL_COLOR]> storage ++: profileLoad()
+    activate storage STORAGE_COLOR
     note left: load file data in profile file into UserProfile
-    storage -> pDecoder ++: decodeUserProfile(encodedUserProfile: List<String>)
+    storage -[STORAGE_COLOR]> pDecoder ++: decodeUserProfile(encodedUserProfile: List<String>)
+    activate pDecoder STORAGE_COLOR_T1
     note right: decode the file contents and store in UserProfile
     return :UserProfile
+    deactivate pDecoder
     return :UserProfile
+    deactivate storage
 
-    main -> ui ++: printPrompt()
+    main -[MODEL_COLOR]> ui ++: printPrompt()
+    activate ui UI_COLOR
     return
+    deactivate ui
 end
 
-main -> storage ++: mealLoad()
+main -[MODEL_COLOR]> storage ++: mealLoad()
+activate storage STORAGE_COLOR
 note left: load meals in file to mealList
-storage -> mDecoder ++: decodeMealList(encodedMealList: List<String>)
+storage -[STORAGE_COLOR]> mDecoder ++: decodeMealList(encodedMealList: List<String>)
+activate mDecoder STORAGE_COLOR_T2
 note right: decode the file contents and store in MealList
 mDecoder -> mDecoder ++: decodeMealsFromString(encodedMeal: String)
+activate mDecoder STORAGE_COLOR_T2
 return :Meal
+deactivate mDecoder
 return :MealList
+deactivate mDecoder
 return :MealList
+deactivate storage
 
-main -> storage ++: workoutLoad()
+main -[MODEL_COLOR]> storage ++: workoutLoad()
+activate storage STORAGE_COLOR
 note left: load workouts in file to workoutList
-storage -> wDecoder ++: decodeWorkoutList(encodedWorkoutList: List<String>)
+storage -[STORAGE_COLOR]> wDecoder ++: decodeWorkoutList(encodedWorkoutList: List<String>)
+activate wDecoder STORAGE_COLOR_T3
 note right: decode the file contents and store in WorkoutList
 wDecoder -> wDecoder ++: decodeMealsFromString(encodedWorkout: String)
+activate wDecoder STORAGE_COLOR_T3
 return :Workout
+deactivate wDecoder
 return :WorkoutList
+deactivate wDecoder
 return :WorkoutList
+deactivate storage
 
 @enduml

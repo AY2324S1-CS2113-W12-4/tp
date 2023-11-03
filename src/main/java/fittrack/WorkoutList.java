@@ -1,8 +1,8 @@
 package fittrack;
 
-import fittrack.data.Workout;
-
 import java.util.ArrayList;
+
+import fittrack.data.Workout;
 
 public class WorkoutList {
     private int workoutListSize = 0;

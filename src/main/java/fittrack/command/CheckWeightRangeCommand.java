@@ -22,7 +22,7 @@ public class CheckWeightRangeCommand extends Command{
     public CommandResult execute(){
         Height height = userProfile.getHeight();
         double weight = height.calculateIdealWeight();
-        return new CommandResult("Recommended Weight: " + weight + " kg");
+        return new CommandResult(String.format("Recommended Weight: %.2f kg", weight));
     }
 
     @Override

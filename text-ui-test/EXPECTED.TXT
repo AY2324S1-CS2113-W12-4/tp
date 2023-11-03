@@ -29,6 +29,9 @@ Daily calorie limit: 2000kcal
 BMI: 24.69
 Gender: Male
 ____________________________________________________________
+`view` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+
 `viewprofile 123` is an invalid command.
 `viewprofile` shows all profile details.
 Type `viewprofile` to view your profile.
@@ -80,6 +83,12 @@ You should type <DATE> in format of `yyyy-MM-dd`.
 I've added the following meal:
 [M] cabonara pasta (180kcal, 2023-10-29)
 
+`addmeal pizza c/230 d/2023-11-1` is an invalid command.
+`addmeal` adds your daily meal data to the list.
+Type `addmeal <MEAL_NAME> c/<CALORIES>` to add today's meal.
+Type `addmeal <MEAL_NAME> c/<CALORIES> d/<DATE>` to add a meal.
+You should type <DATE> in format of `yyyy-MM-dd`.
+
 `viewmeal` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
 
@@ -98,20 +107,49 @@ I've added the following workout:
 I've added the following workout:
 [W] long run (200kcal, 2023-10-29)
 
+`addworkout sprint run c/100 d/2023-11-1` is an invalid command.
+`addworkout` adds your daily workout data to the list.
+Type `addworkout <WORKOUT_NAME> c/<CALORIES>` to add today's workout.
+Type `addworkout <WORKOUT_NAME> c/<CALORIES> d/<DATE>` to add a workout.
+You should type <DATE> in format of `yyyy-MM-dd`.
+
 These are the workouts you have done:
 1.[W] run (100kcal, 2023-10-22)
 2.[W] long run (200kcal, 2023-10-29)
 
 
+`findmeal` is an invalid command.
+`findmeal` finds the meal you are looking for in your meal list.
+Type `findmeal <keyword>` to find a meal.
+
+
+`findworkout` is an invalid command.
+`findworkout` finds the workout you are looking for in your workout list.
+Type `findworkout <keyword>` to find a workout.
+
+
 These meals contain the keyword pasta:
 1. [M] pasta (200kcal, 2023-10-22)
 2. [M] cabonara pasta (180kcal, 2023-10-29)
-
+There are 2 meals that contains pasta
 
 These workouts contain the keyword run:
 1. [W] run (100kcal, 2023-10-22)
 2. [W] long run (200kcal, 2023-10-29)
+There are 2 workouts that contains run
 
+`calorieburnt` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+
+`calorieburnt` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+
+`caloriesum 1` is an invalid command.
+`caloriesum` calculates your total calories burned.
+Type `caloriesum` to calculate your total calories burned.
+
+`calorisum` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
 
 `deletemeal1` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
@@ -125,7 +163,18 @@ Type `help` or `help <COMMAND>` to view help.
 I've deleted the following workout:
 [W] run (100kcal, 2023-10-22)
 
-Recommended Weight: 66.01599999999999 kg
+`checkweightrange 1` is an invalid command.
+`checkweightrange` calculates the recommended weight for your height.
+Type `checkweightrange` calculate the recommended weight for your height.
+
+
+Recommended Weight: 66.02 kg
+
+`save file 1` is an invalid command.
+`save` saves your profile, meals and workout data.
+Type `save` to save your profile, meals and workout data.
+
+Your data has been saved!
 
 `help` shows help message of the command.
 Existing commands:

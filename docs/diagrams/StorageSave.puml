@@ -1,41 +1,54 @@
 @startuml
+!include style.puml
+
 title Main Structure of Storage Save\n
 
-participant ":FitTrack" as main
-participant ":Storage" as storage
+participant ":FitTrack" as main MODEL_COLOR
+participant ":Storage" as storage STORAGE_COLOR
 participant ":FileWriter" as fileWriter
 
 main -> main ++: executeCommand()
+activate main MODEL_COLOR
 note left: Save data to all three files \n upon each command execution
-main -> storage ++: save(userProfile:UserProfile, mealList:MealList, workoutList:WorkoutList)
+main -[MODEL_COLOR]> storage ++: save(userProfile:UserProfile, mealList:MealList, workoutList:WorkoutList)
+activate storage STORAGE_COLOR
 storage -> storage ++: saveProfile(userProfile:UserProfile)
+activate storage STORAGE_COLOR
 create fileWriter
-storage -> fileWriter ++: FileWriter(PROFILE_FILE_PATH:String)
+storage -[STORAGE_COLOR]> fileWriter ++: FileWriter(PROFILE_FILE_PATH:String)
 return file:FileWriter
-storage -> fileWriter ++: write(profile.String():String)
+storage -[STORAGE_COLOR]> fileWriter ++: write(profile.String():String)
 return
 destroy fileWriter
 return
+deactivate storage
+
 storage -> storage ++: saveMeal(mealList:MealList)
+activate storage STORAGE_COLOR
 create fileWriter
-storage -> fileWriter ++: FileWriter(MEAL_LIST_FILE_PATH:String)
+storage -[STORAGE_COLOR]> fileWriter ++: FileWriter(MEAL_LIST_FILE_PATH:String)
 return file:FileWriter
 group loop [for all elements in mealArr]
-    storage -> fileWriter ++: write(m.String():String)
+    storage -[STORAGE_COLOR]> fileWriter ++: write(m.String():String)
     return
 destroy fileWriter
 end
 return
+deactivate storage
+
 storage -> storage ++: saveWorkout(workoutList:WorkoutList)
+activate storage STORAGE_COLOR
 create fileWriter
-storage -> fileWriter ++: FileWriter(WORKOUT_LIST_FILE_PATH:String)
+storage -[STORAGE_COLOR]> fileWriter ++: FileWriter(WORKOUT_LIST_FILE_PATH:String)
 return file:FileWriter
 group loop [for all elements in workoutArr]
-    storage -> fileWriter ++: write(w.String():String)
+    storage -[STORAGE_COLOR]> fileWriter ++: write(w.String():String)
     return
 destroy fileWriter
 end
 return
+deactivate storage
 return
+deactivate storage
 
 @enduml

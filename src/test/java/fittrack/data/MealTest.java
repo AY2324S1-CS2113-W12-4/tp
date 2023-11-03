@@ -32,7 +32,7 @@ class MealTest {
 
     @Test
     void formatToFile_tm_success() {
-        assertEquals("meal | 100kcal| 2023-10-30", tm.formatToFile());
+        assertEquals("meal | 100kcal | 2023-10-30", tm.formatToFile());
     }
 
     @Test

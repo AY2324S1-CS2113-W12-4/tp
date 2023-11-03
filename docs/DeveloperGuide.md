@@ -29,10 +29,10 @@ The **`Main`** class is called [`FitTrack`](../src/main/java/fittrack/FitTrack.j
 
 The App consists of eight components.
 * [**`UI`**](#ui-component): The UI of the App.
+* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 * [**`MealList`**](#meal-list-component): Stores all meals.
 * [**`UserProfile`**](#user-profile-component): The class which handles all profile data.
 * [**`WorkoutList`**](#workout-list-component): Stores all workouts.
-* [**`Storage`**](#storage-component): Reads data from, and writes data to, the hard disk.
 * [**`Parser`**](#parser-component): Handles user input.
 * [**`Data`**](#data-component): Holds the data of the app in memory.
 * [**`Command`**](#command-component): The command executor.
@@ -51,6 +51,9 @@ Refer to [`CommandParser`](../src/main/java/fittrack/parser/CommandParser.java),
 classes.
 
 ![Sequence of invalid command](images/InvalidCommand.svg "Sequence of invalid command")
+
+Given below is the Sequence Diagram for interactions within the Logic component for the execute("deletemeal 1") call.
+![Deletemeal command sequence](images/DeleteSequence.svg)
 
 ### Storage Component
 Storage load and save functions are written in [`Storage`](../src/main/java/fittrack/storage/Storage.java) class.
@@ -100,11 +103,17 @@ BMI, ideal weight for their height and so on.
 |v2.0|user| Calculate my ideal weight for my height                     | maintain my weight in the healthy range                       |
 |v2.0|user| see the total calories I have consumed on a particular date | track my daily calories intake                                |
 |v2.0|user| see the total calories I have burnt on a particular date    | track my daily calories burnt                                 |
+|v2.0|user| find a meal or workout                                      | quickly search my past meals or workouts                      |
+
 
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+- Should be OS agnostic as long as it runs Java 11
+- Should be able to handle 1000+ workouts and meals
+- Does not require internet connection to run
+- Should be usable for an average typist.
+- Should be able to handle incorrect user input and provide feedback to the user.
 
 ## Glossary
 

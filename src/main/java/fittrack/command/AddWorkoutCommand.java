@@ -1,9 +1,9 @@
 package fittrack.command;
 
-import fittrack.data.Workout;
 import fittrack.parser.CommandParser;
 import fittrack.parser.NumberFormatException;
 import fittrack.parser.PatternMatchFailException;
+import fittrack.data.Workout;
 
 public class AddWorkoutCommand extends Command {
     public static final String COMMAND_WORD = "addworkout";

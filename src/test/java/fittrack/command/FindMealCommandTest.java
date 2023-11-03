@@ -17,7 +17,7 @@ class FindMealCommandTest {
     private Meal meal1 = new Meal("pasta", new Calories(120), new Date("2023-10-31"));
     private Meal meal2 = new Meal("cabonara pasta", new Calories(100), new Date("2023-10-29"));
     private Meal meal3 = new Meal("chicken", new Calories(80), new Date("2023-10-28"));
-    private final String result1 = "[M] chicken (80kcal, 2023-10-28)";
+    private final String result1 = "There are 2 meals that contains pasta";
 
 
     @BeforeEach
@@ -29,7 +29,7 @@ class FindMealCommandTest {
 
     @Test
     public void execute() throws PatternMatchFailException, NullPointerException {
-        assertFindCommandBehavior("findmeal", "chicken");
+        assertFindCommandBehavior("findmeal", "pasta");
     }
 
     /**
@@ -41,8 +41,7 @@ class FindMealCommandTest {
         findCommand.setArguments(keyword, new CommandParser());
         findCommand.setData(null, mealList, null, null);
         CommandResult result = findCommand.execute();
-        //TODO fix find command execute method
-        assertEquals("", result.getFeedback());
+        assertEquals(result1, result.getFeedback());
     }
 
     @Test

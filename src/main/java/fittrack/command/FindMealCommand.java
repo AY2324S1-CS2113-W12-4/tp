@@ -26,6 +26,7 @@ public class FindMealCommand extends Command {
     public CommandResult execute() {
         ArrayList<Meal> meals = mealList.getMealList();
         int mealNum = 0;
+        int numFound = 0;
         boolean mealFound = false;
         for (Meal meal : meals) {
             if (meal.getName().contains(keyword)) {
@@ -34,13 +35,14 @@ public class FindMealCommand extends Command {
                     ui.printFoundMessage("meals", keyword);
                 }
                 ui.printMealWithNumber(mealNum, meal);
+                numFound++;
             }
             mealNum++;
         }
         if (!mealFound) {
             return new CommandResult("Sorry, there are no such meals found.");
         }
-        return new CommandResult("");
+        return new CommandResult("There are " + numFound + " meals that contains " + keyword);
     }
 
     @Override

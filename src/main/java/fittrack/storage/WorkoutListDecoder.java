@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class WorkoutListDecoder {
 
     private static final Pattern WORKOUT_PATTERN = Pattern.compile(
-            "(?<name>[^|]+)\\s*\\|\\s*(?<calories>\\d+\\.\\d+)kcal\\s*\\|\\s*(?<date>\\S+)"
+            "(?<name>\\S+)\\s*\\|\\s*(?<calories>\\S+)kcal\\s*\\|\\s*(?<date>\\S+)" // add \\d+\\.\\d+ if got decimal
     );
 
     /**

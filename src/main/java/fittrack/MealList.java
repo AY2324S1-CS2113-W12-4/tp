@@ -28,6 +28,7 @@ public class MealList {
         mealList.remove((mealIndex - 1));
         mealListSize--;
     }
+    // @@author
 
     @Override
     public String toString() {

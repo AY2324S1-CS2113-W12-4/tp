@@ -48,27 +48,37 @@ public class CommandParser {
             "addmeal, deletemeal, viewmeals, " +
             "addworkout, deleteworkout, viewworkouts, bmi, save, " +
             "checkweightrange, findmeal, findworkout";
-  
+
+    private static final String WORD_CG = "word";
+    private static final String ARGS_CG = "args";
+    private static final String HEIGHT_CG = "height";
+    private static final String WEIGHT_CG = "weight";
+    private static final String CAL_LIMIT_CG = "calLimit";
+    private static final String NAME_CG = "name";
+    private static final String CALORIES_CG = "calories";
+    private static final String DATE_CG = "date";
+    private static final String INDEX_CG = "index";
+    private static final String KEYWORD_CG = "keyword";
     private static final Pattern COMMAND_PATTERN = Pattern.compile(
-            "(?<word>\\S+)(?<args>.*)"
+            "(?<" + WORD_CG + ">\\S+)(?<" + ARGS_CG + ">.*)"
     );
     private static final Pattern PROFILE_PATTERN = Pattern.compile(
             "h/(?<height>\\S+)\\s+w/(?<weight>\\S+)\\s+g/(?<gender>\\S+)\\s+l/(?<calLimit>\\S+)"
     );
     private static final Pattern MEAL_PATTERN = Pattern.compile(
-            "(?<name>.+)\\s+c/(?<calories>\\S+)(\\s+d/(?<date>\\S+))?"
+            "(?<" + NAME_CG + ">.+)\\s+c/(?<" + CALORIES_CG + ">\\S+)(\\s+d/(?<" + DATE_CG + ">\\S+))?"
     );
     private static final Pattern WORKOUT_PATTERN = Pattern.compile(
-            "(?<name>.+)\\s+c/(?<calories>\\S+)(\\s+d/(?<date>\\S+))?"
+            "(?<" + NAME_CG + ">.+)\\s+c/(?<" + CALORIES_CG + ">\\S+)(\\s+d/(?<" + DATE_CG + ">\\S+))?"
     );
     private static final Pattern INDEX_PATTERN = Pattern.compile(
-            "(?<index>\\S+)"
+            "(?<" + INDEX_CG + ">\\S+)"
     );
     private static final Pattern DATE_PATTERN = Pattern.compile(
-            "(?<date>\\S+)"
+            "(?<" + DATE_CG + ">\\S+)"
     );
     private static final Pattern FIND_PATTERN = Pattern.compile(
-            "(?<keyword>\\S+)"
+            "(?<" + KEYWORD_CG + ">\\S+)"
     );
 
     public Command parseCommand(String userCommandLine) {
@@ -78,8 +88,8 @@ public class CommandParser {
             return getInvalidCommand(userCommandLine);
         }
 
-        final String word = matcher.group("word").strip();
-        final String args = matcher.group("args").strip();
+        final String word = matcher.group(WORD_CG).strip();
+        final String args = matcher.group(ARGS_CG).strip();
 
         Command command = getBlankCommand(word, userCommandLine);
         if (command instanceof InvalidCommand) {
@@ -193,9 +203,9 @@ public class CommandParser {
             throw new PatternMatchFailException();
         }
 
-        final String name = matcher.group("name");
-        final String calories = matcher.group("calories");
-        final String date = matcher.group("date");
+        final String name = matcher.group(NAME_CG);
+        final String calories = matcher.group(CALORIES_CG);
+        final String date = matcher.group(DATE_CG);
 
         try {
             double caloriesInDouble = Double.parseDouble(calories);
@@ -218,9 +228,9 @@ public class CommandParser {
             throw new PatternMatchFailException();
         }
 
-        final String name = matcher.group("name");
-        final String calories = matcher.group("calories");
-        final String date = matcher.group("date");
+        final String name = matcher.group(NAME_CG);
+        final String calories = matcher.group(CALORIES_CG);
+        final String date = matcher.group(DATE_CG);
 
         try {
             double caloriesInDouble = Double.parseDouble(calories);
@@ -244,7 +254,7 @@ public class CommandParser {
             throw new PatternMatchFailException();
         }
 
-        final String index = matcher.group("index");
+        final String index = matcher.group(INDEX_CG);
 
         try {
             return Integer.parseInt(index);
@@ -252,6 +262,7 @@ public class CommandParser {
             throw new NumberFormatException();
         }
     }
+    // @@author
 
     public Date parseDate(String date) throws PatternMatchFailException {
         final Matcher matcher = DATE_PATTERN.matcher(date);
@@ -259,7 +270,7 @@ public class CommandParser {
             throw new PatternMatchFailException();
         }
 
-        final String dateString = matcher.group("date");
+        final String dateString = matcher.group(DATE_CG);
 
         try {
             return new Date(dateString);
@@ -274,7 +285,7 @@ public class CommandParser {
             throw new PatternMatchFailException();
         }
 
-        return matcher.group("keyword");
+        return matcher.group(KEYWORD_CG);
     }
 
     public String getFirstWord(String str) {

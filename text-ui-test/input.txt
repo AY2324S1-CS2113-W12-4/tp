@@ -17,19 +17,30 @@ bmi 30f
 addmeal pasta c/200 d/2023-10-22
 addmeal pizza 200
 addmeal cabonara pasta c/180 d/2023-10-29
+addmeal pizza c/230 d/2023-11-1
 viewmeal qw
 viewmeal
 addworkout run 400 d/2023-10-22
 addworkout run c/100 d/2023-10-22
 addworkout long run c/200 d/2023-10-29
+addworkout sprint run c/100 d/2023-11-1
 viewworkouts
+findmeal
+findworkout
 findmeal pasta
 findworkout run
+calorieburnt
+calorieburnt 2023-10-29
+caloriesum 1
+calorisum
 deletemeal1
 deletemeal 1
 deleteworkout1
 deleteworkout 1
+checkweightrange 1
 checkweightrange
+save file 1
+save
 help
 help editprofile
 help viewprofile

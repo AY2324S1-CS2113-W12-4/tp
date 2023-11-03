@@ -10,6 +10,10 @@ public class Calories {
         this.value = calories;
     }
 
+    public double getValue() {
+        return this.value;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

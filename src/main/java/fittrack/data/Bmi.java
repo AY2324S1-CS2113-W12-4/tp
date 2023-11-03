@@ -12,6 +12,7 @@ public class Bmi {
     Bmi(double bmi) {
         this.value = bmi;
     }
+    // @@author
 
     public Bmi(Height height, Weight weight) {
         assert (height != null && height.value > 0 && weight != null);

@@ -42,4 +42,8 @@ public class CaloriesBurntCommand extends Command {
     protected String getHelp() {
         return HELP;
     }
+
+    public double getCaloriesBurnt() {
+        return this.caloriesBurnt;
+    }
 }

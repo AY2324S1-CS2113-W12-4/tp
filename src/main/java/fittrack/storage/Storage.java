@@ -50,20 +50,20 @@ public class Storage {
         try {
             File f = new File(FILE_DIRECTORY);
 
-            if (f.mkdir()) {
+            if (f.mkdir()) { // if the directory does not exist, create a new one
                 System.out.println("Directory created: " + f.getName());
             } else {
                 System.out.println("Directory already exists.");
                 ui.printLine();
             }
 
-            if (!this.profileFile.exists()) {
+            if (!this.profileFile.exists()) { // if file that stores profile data does not exist, create one
                 profileFile.createNewFile();
             }
-            if (!this.mealFile.exists()) {
+            if (!this.mealFile.exists()) { // if file that stores meals does not exist, create one
                 mealFile.createNewFile();
             }
-            if (!this.workoutFile.exists()) {
+            if (!this.workoutFile.exists()) { // if file that stores workouts does not exist, create one
                 workoutFile.createNewFile();
             }
         } catch (IOException e) {
@@ -98,7 +98,6 @@ public class Storage {
      * @throws IOException error
      */
     public void saveProfile(UserProfile userProfile) throws IOException {
-        //TODO write data to file
         FileWriter file = new FileWriter(PROFILE_FILE_PATH);
         file.write(userProfile.toString() + "\n");
         file.close();
