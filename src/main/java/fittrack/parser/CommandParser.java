@@ -53,6 +53,7 @@ public class CommandParser {
     private static final String ARGS_CG = "args";
     private static final String HEIGHT_CG = "height";
     private static final String WEIGHT_CG = "weight";
+    private static final String GENDER_CG = "gender";
     private static final String CAL_LIMIT_CG = "calLimit";
     private static final String NAME_CG = "name";
     private static final String CALORIES_CG = "calories";
@@ -63,7 +64,7 @@ public class CommandParser {
             "(?<" + WORD_CG + ">\\S+)(?<" + ARGS_CG + ">.*)"
     );
     private static final Pattern PROFILE_PATTERN = Pattern.compile(
-            "h/(?<height>\\S+)\\s+w/(?<weight>\\S+)\\s+g/(?<gender>\\S+)\\s+l/(?<calLimit>\\S+)"
+            "h/(?<" + HEIGHT_CG + ">\\S+)\\s+w/(?<" + WEIGHT_CG + ">\\S+)\\s+g/(?<" + GENDER_CG + ">\\S+)\\s+l/(?<" + CALORIES_CG + ">\\S+)"
     );
     private static final Pattern MEAL_PATTERN = Pattern.compile(
             "(?<" + NAME_CG + ">.+)\\s+c/(?<" + CALORIES_CG + ">\\S+)(\\s+d/(?<" + DATE_CG + ">\\S+))?"
@@ -169,7 +170,7 @@ public class CommandParser {
      * @throws NumberFormatException if one of arguments is not double
      */
     public UserProfile parseProfile(String profile)
-            throws PatternMatchFailException, NumberFormatException, NegativeNumberException {
+            throws PatternMatchFailException, NumberFormatException, NegativeNumberException, WrongGenderException {
         final Matcher matcher = PROFILE_PATTERN.matcher(profile);
         if (!matcher.matches()) {
             throw new PatternMatchFailException();
@@ -184,6 +185,10 @@ public class CommandParser {
             // Height, weight and calories cannot be negative. Throw exception if it happens
             if (height < 0 || weight < 0 || dailyCalorieLimit < 0) {
                 throw new NegativeNumberException();
+            }
+
+            if (gender != 'M' && gender != 'F') {
+                throw new WrongGenderException();
             }
 
             Height heightData = new Height(height);

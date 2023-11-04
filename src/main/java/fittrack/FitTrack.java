@@ -3,10 +3,8 @@ package fittrack;
 import fittrack.command.Command;
 import fittrack.command.CommandResult;
 import fittrack.command.ExitCommand;
-import fittrack.parser.CommandParser;
-import fittrack.parser.NegativeNumberException;
+import fittrack.parser.*;
 import fittrack.parser.NumberFormatException;
-import fittrack.parser.PatternMatchFailException;
 import fittrack.storage.Storage;
 import fittrack.storage.Storage.StorageOperationException;
 import fittrack.storage.Storage.InvalidStorageFilePathException;
@@ -78,6 +76,8 @@ public class FitTrack {
                 System.out.println("Please enter numbers for height, weight, and daily calorie limit.");
             } catch (NegativeNumberException e) {
                 System.out.println("Please enter a number greater than 0");
+            } catch (WrongGenderException e) {
+                System.out.println("Please enter either M or F");
             }
         }
     }
@@ -110,7 +110,7 @@ public class FitTrack {
      * @throws NumberFormatException if one of arguments is not double
      */
     private void profileSettings()
-            throws PatternMatchFailException, NumberFormatException, NegativeNumberException {
+            throws PatternMatchFailException, NumberFormatException, NegativeNumberException, WrongGenderException {
         System.out.println(
                 "Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):"
         );

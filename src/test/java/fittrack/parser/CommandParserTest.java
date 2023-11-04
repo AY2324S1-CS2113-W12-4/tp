@@ -135,7 +135,7 @@ class CommandParserTest {
             assertEquals(80.0, profile.getWeight().value);
             assertEquals('M', profile.getGender().getGender());
             assertEquals(2000.0, profile.getDailyCalorieLimit().value);
-        } catch (PatternMatchFailException | NegativeNumberException | NumberFormatException e) {
+        } catch (PatternMatchFailException | NegativeNumberException | NumberFormatException | WrongGenderException e) {
             throw new RuntimeException(e);
         }
     }
