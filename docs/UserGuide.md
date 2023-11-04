@@ -73,18 +73,20 @@ Goodbye! Hope to see you again soon!
 ### Editing Your Profile: `editprofile`
 Allows user to edit their profile details.
 
-Format: `editprofile h/<height> w/<weight> l/<calories>`
+Format: `editprofile h/<height> w/<weight> g/<gender> l/<calories>`
 
 Example of usage: 
 ```
-editprofile h/170 w/70 l/100
+editprofile h/170 w/70 g/M l/100
 ```
 Expected output:
 ```
 I've edited the following:
-Height: 170.0
-Weight: 70.0
-Daily calorie limit: 100.0
+Height: 170.0cm
+Weight: 70.0kg
+Daily calorie limit: 100.00
+BMI: 100.00
+Gender: Male
 ```
 
 ### Viewing your profile: `viewprofile`
@@ -100,9 +102,11 @@ viewprofile
 **Expected output:**
 ```
 Your Profile:
-Height: 180.0
-Weight: 80.0
-Daily calorie limit: 3000.0
+Height: 100.0cm
+Weight: 100.0kg
+Daily calorie limit: 1000kcal
+BMI: 100.00
+Gender: Male
 ```
 
 ### Checking your current BMI: `bmi`
