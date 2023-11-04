@@ -29,9 +29,6 @@ Daily calorie limit: 2000kcal
 BMI: 24.69
 Gender: Male
 ____________________________________________________________
-`view` is an invalid command.
-Type `help` or `help <COMMAND>` to view help.
-
 `viewprofile 123` is an invalid command.
 `viewprofile` shows all profile details.
 Type `viewprofile` to view your profile.
