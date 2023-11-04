@@ -1,8 +1,11 @@
 package fittrack.command;
 
 import fittrack.UserProfile;
-import fittrack.parser.*;
+import fittrack.parser.CommandParser;
+import fittrack.parser.NegativeNumberException;
 import fittrack.parser.NumberFormatException;
+import fittrack.parser.PatternMatchFailException;
+import fittrack.parser.WrongGenderException;
 
 public class EditProfileCommand extends Command {
     public static final String COMMAND_WORD = "editprofile";
