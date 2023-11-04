@@ -1,4 +1,4 @@
 package fittrack.parser;
 
-public class WrongGenderException extends Exception {
+public class WrongGenderException extends ParseException {
 }

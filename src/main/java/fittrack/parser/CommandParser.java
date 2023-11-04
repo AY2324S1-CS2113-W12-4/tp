@@ -64,7 +64,7 @@ public class CommandParser {
             "(?<" + WORD_CG + ">\\S+)(?<" + ARGS_CG + ">.*)"
     );
     private static final Pattern PROFILE_PATTERN = Pattern.compile(
-            "h/(?<" + HEIGHT_CG + ">\\S+)\\s+w/(?<" + WEIGHT_CG + ">\\S+)\\s+g/(?<" + GENDER_CG + ">\\S+)\\s+l/(?<" + CALORIES_CG + ">\\S+)"
+            "h/(?<" + HEIGHT_CG + ">\\S+)\\s+w/(?<" + WEIGHT_CG + ">\\S+)\\s+g/(?<" + GENDER_CG + ">\\S+)\\s+l/(?<" + CAL_LIMIT_CG + ">\\S+)"
     );
     private static final Pattern MEAL_PATTERN = Pattern.compile(
             "(?<" + NAME_CG + ">.+)\\s+c/(?<" + CALORIES_CG + ">\\S+)(\\s+d/(?<" + DATE_CG + ">\\S+))?"
@@ -199,6 +199,8 @@ public class CommandParser {
             return new UserProfile(heightData, weightData, caloriesData, genderData);
         } catch (java.lang.NumberFormatException e) {
             throw new NumberFormatException();
+        } catch (WrongGenderException e) {
+            throw new RuntimeException(e);
         }
     }
 

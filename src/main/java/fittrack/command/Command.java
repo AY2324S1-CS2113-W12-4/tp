@@ -3,7 +3,6 @@ package fittrack.command;
 import fittrack.MealList;
 import fittrack.UserProfile;
 import fittrack.WorkoutList;
-import fittrack.parser.WrongGenderException;
 import fittrack.storage.Storage;
 import fittrack.parser.CommandParser;
 import fittrack.parser.ParseException;
@@ -48,7 +47,7 @@ public abstract class Command {
      * @throws ParseException if parse fails
      */
     public abstract void setArguments(String args, CommandParser parser)
-            throws ParseException, WrongGenderException;
+            throws ParseException;
 
     /**
      * Returns help of the command.
