@@ -1,6 +1,6 @@
 package fittrack.command;
 
-import fittrack.UserProfile;
+
 import fittrack.data.Date;
 import fittrack.data.Meal;
 import fittrack.data.Workout;
