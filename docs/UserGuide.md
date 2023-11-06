@@ -42,6 +42,7 @@ Type `help` to see a list of commands that you will be able to use in the applic
 * [Viewing list of workout : `viewworkout`](#viewing-list-of-all-workouts-viewworkout)
 * [Find workouts by a keyword: `findworkout`](#finding-workouts-by-a-keyword-findworkout)
 * [Checking total calories burnt on a specific date: `caloriesburnt`](#checking-total-calories-burnt-on-a-specific-date-caloriesburnt)
+* [Checking calorie balance on a specific date: `caloriesbalance`](#checking-total-calories-burnt-on-a-specific-date-caloriesburnt)
 
 
 ### Viewing help guide: `help`
@@ -64,7 +65,7 @@ help
 Existing commands:
 help, exit, save, editprofile, viewprofile, bmi, checkrecommendedweight, 
 addmeal, deletemeal, viewmeal, findmeal, caloriesconsumed
-addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt
+addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt, caloriebalance
 Type `help` or `help <COMMAND>` to view help.
 ```
 
@@ -354,6 +355,39 @@ caloriesburnt 2023-11-04
 Total calories burnt on 2023-11-04: 230kcal
 ```
 
+### Checking calorie balance on a specific date: `caloriesbalance`
+Allows user to check their calorie balance (surplus/deficit) on a specific date.
+
+**Format**
+- `caloriesbalance <DATE>`
+- You should type `<DATE>` in format of `yyyy-MM-dd`.
+
+**Example of usage**
+```
+caloriesbalance 2023-11-04
+```
+
+**Expected output**
+
+- If the user is in a calorie surplus:
+```
+You have exceeded your calorie limit on 2023-11-07 by: 4910.0kcal
+You are in a calorie surplus!
+Try doing more exercises if you want to eat!
+```
+
+- If the user is left with 0 in his calorie balance:
+```
+Your calorie balance on 2023-11-07 is: 0.0kcal
+Try doing more exercise if you want to eat!
+```
+
+- If the user is in a calorie deficit:
+```
+Your calorie balance on 2023-11-07 is: 200.0kcal
+You are in a calorie deficit!
+You can try to eat more!
+```
 
 ## FAQ
 
@@ -391,3 +425,4 @@ Total calories burnt on 2023-11-04: 230kcal
 | Viewing list of workout                             | `viewworkout`            |
 | Find workouts by a keyword                          | `findworkout`            |
 | Checking total calories burnt on a specific date    | `caloriesburnt`          |
+| Checking calorie balance on a specific date         | `caloriesbalance`        |
