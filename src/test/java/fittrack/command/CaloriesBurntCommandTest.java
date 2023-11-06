@@ -32,7 +32,10 @@ public class CaloriesBurntCommandTest {
         caloriesBurntCommand.setArguments("2023-10-23", new CommandParser());
         caloriesBurntCommand.setData(null, null, workoutList, null);
         CommandResult result = caloriesBurntCommand.execute();
-        assertEquals("Total calories burnt on 2023-10-23: 600.0cals"
+        assertEquals("[W] workout1 (100kcal, 2023-10-23)\n" +
+                        "[W] workout2 (200kcal, 2023-10-23)\n" +
+                        "[W] workout3 (300kcal, 2023-10-23)\n" +
+                        "Total calories burnt on 2023-10-23: 600kcal"
                 , result.getFeedback());
     }
 

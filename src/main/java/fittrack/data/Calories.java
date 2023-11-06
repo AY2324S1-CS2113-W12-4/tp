@@ -10,8 +10,8 @@ public class Calories {
         this.value = calories;
     }
 
-    public double getValue() {
-        return this.value;
+    public Calories sum(Calories another) {
+        return new Calories(this.value + another.value);
     }
 
     @Override

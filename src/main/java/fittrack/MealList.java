@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class MealList {
 
     private int mealListSize = 0;
-    private ArrayList<Meal> mealList;
+    private final ArrayList<Meal> mealList;
 
     public MealList() {
         mealList = new ArrayList<>();
@@ -38,7 +38,7 @@ public class MealList {
             output.append(counter).append(".").append(meal.toString()).append("\n");
             counter += 1;
         }
-        return output.toString();
+        return output.toString().strip();
     }
 
     public Meal getMeal(int mealIndex) {

@@ -229,7 +229,7 @@ public class Storage {
             int data = reader.read();
             return data == -1; // Returns true if the file is empty
         } catch (IOException e) {
-            System.out.println(e.getMessage());;
+            System.out.println(e.getMessage());
             return false; // Consider it non-empty if there's an exception
         }
     }

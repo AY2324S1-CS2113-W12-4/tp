@@ -18,7 +18,10 @@ class FindWorkoutCommandTest {
     private Workout workout1 = new Workout("short run", new Calories(120), new Date("2023-10-31"));
     private Workout workout2 = new Workout("walk", new Calories(100), new Date("2023-10-29"));
     private Workout workout3 = new Workout("long run", new Calories(80), new Date("2023-10-28"));
-    private final String result1 = "There are 2 workouts that contains run";
+    private final String result1 = "These workouts contain the keyword run:\n" +
+            "1.[W] short run (120kcal, 2023-10-31)\n" +
+            "3.[W] long run (80kcal, 2023-10-28)\n" +
+            "There are 2 workouts that contains run.";
     private final String result2 = "Sorry, there are no such workouts found.";
 
 

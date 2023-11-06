@@ -14,14 +14,14 @@ public class Meal {
     }
 
     public String formatToFile() {
-        return String.format("%s | %s| %s", name, calories, date);
+        return String.format("%s | %s | %s", name, calories, date);
     }
 
     public Calories getCalories() {
         return calories;
     }
 
-    public Date getMealDate() {
+    public Date getDate() {
         return this.date;
     }
 

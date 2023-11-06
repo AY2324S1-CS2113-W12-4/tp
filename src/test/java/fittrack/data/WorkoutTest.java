@@ -32,7 +32,7 @@ class WorkoutTest {
 
     @Test
     void getCalories_tw_double100() {
-        assertEquals(100, tw.getCalories());
+        assertEquals(100, tw.getCalories().value);
     }
 
     @Test

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+// @@author NgLixuanNixon
 public class AddMealCommandTest {
 
     @Test
@@ -18,7 +19,7 @@ public class AddMealCommandTest {
         try {
             addMealCommand.setArguments(args, parser);
             Calories testCals = addMealCommand.getMeal().getCalories();
-            assertEquals(testCals.getValue(), actual);
+            assertEquals(testCals.value, actual);
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -29,3 +30,4 @@ public class AddMealCommandTest {
         assertEquals(AddMealCommand.HELP, new AddMealCommand("").getHelp());
     }
 }
+// @@author

@@ -13,9 +13,9 @@ public class Workout {
         this.date = date;
     }
 
-    public double getCalories() {
+    public Calories getCalories() {
         assert calories.value != 0;
-        return calories.value;
+        return calories;
     }
 
     public Date getDate() {

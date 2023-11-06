@@ -7,9 +7,12 @@ import fittrack.parser.CommandParser;
 import fittrack.parser.NegativeNumberException;
 import fittrack.parser.NumberFormatException;
 import fittrack.parser.PatternMatchFailException;
+import fittrack.parser.WrongGenderException;
 import fittrack.storage.Storage;
 import fittrack.storage.Storage.StorageOperationException;
 import fittrack.storage.Storage.InvalidStorageFilePathException;
+
+import java.io.IOException;
 
 
 /**
@@ -20,8 +23,8 @@ import fittrack.storage.Storage.InvalidStorageFilePathException;
  * to build main structure of this class.
  */
 public class FitTrack {
+    public static final String VERSION = "FitTrack - Version 2.1";
 
-    public static final String VERSION = "FitTrack - Version 2.0";
     private final Ui ui;
     private Storage storage;
     private UserProfile userProfile;
@@ -50,7 +53,7 @@ public class FitTrack {
 
     private void start(String[] args) {
         boolean isValidInput = false;
-        ui.printVersion(VERSION);
+        ui.printVersion();
         ui.printWelcome();
 
         try {
@@ -71,13 +74,19 @@ public class FitTrack {
         while (!isValidInput) {
             try {
                 profileSettings();
+                storage.saveProfile(userProfile);
                 isValidInput = true;
             } catch (PatternMatchFailException e) {
-                System.out.println("Wrong format. Please enter h/<height> w/<weight> l/<dailyCalorieLimit>");
+                System.out.println("Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>");
             } catch (NumberFormatException e) {
                 System.out.println("Please enter numbers for height, weight, and daily calorie limit.");
             } catch (NegativeNumberException e) {
                 System.out.println("Please enter a number greater than 0");
+            } catch (WrongGenderException e) {
+                System.out.println("Please enter either M or F");
+            } catch (IOException e) {
+                System.out.println("Error occurred while saving profile.");
+                isValidInput = true;
             }
         }
     }
@@ -95,9 +104,10 @@ public class FitTrack {
     private CommandResult executeCommand(Command command) {
         try {
             command.setData(userProfile, mealList, workoutList, storage);
+            CommandResult result = command.execute();
             storage.save(userProfile, mealList, workoutList);
-            return command.execute();
-        } catch (Exception e) {
+            return result;
+        } catch (IOException e) {
             System.out.println(e.getMessage());
             throw new RuntimeException();
         }
@@ -110,9 +120,9 @@ public class FitTrack {
      * @throws NumberFormatException if one of arguments is not double
      */
     private void profileSettings()
-            throws PatternMatchFailException, NumberFormatException, NegativeNumberException {
+            throws PatternMatchFailException, NumberFormatException, NegativeNumberException, WrongGenderException {
         System.out.println(
-                "Please enter your height (in cm), weight (in kg), and daily calorie limit (in kcal):"
+                "Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):"
         );
         String input = ui.scanNextLine();
 
@@ -122,6 +132,7 @@ public class FitTrack {
         userProfile.setHeight(profile.getHeight());
         userProfile.setWeight(profile.getWeight());
         userProfile.setDailyCalorieLimit(profile.getDailyCalorieLimit());
+        userProfile.setGender(profile.getGender());
 
         ui.printProfileDetails(userProfile);
     }

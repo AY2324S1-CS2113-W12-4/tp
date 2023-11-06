@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 public class MealListDecoder {
 
     private static final Pattern MEAL_PATTERN = Pattern.compile(
-            "(?<name>[^|]+)\\s*\\|\\s*(?<calories>\\d+\\.\\d+)kcal\\s*\\|\\s*(?<date>\\S+)"
+            "(?<name>\\S+)\\s*\\|\\s*(?<calories>\\S+)kcal\\s*\\|\\s*(?<date>\\S+)"
     );
 
     /**

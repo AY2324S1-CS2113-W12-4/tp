@@ -17,7 +17,10 @@ class FindMealCommandTest {
     private Meal meal1 = new Meal("pasta", new Calories(120), new Date("2023-10-31"));
     private Meal meal2 = new Meal("cabonara pasta", new Calories(100), new Date("2023-10-29"));
     private Meal meal3 = new Meal("chicken", new Calories(80), new Date("2023-10-28"));
-    private final String result1 = "There are 2 meals that contains pasta";
+    private final String result1 = "These meals contain the keyword pasta:\n" +
+            "1.[M] pasta (120kcal, 2023-10-31)\n" +
+            "2.[M] cabonara pasta (100kcal, 2023-10-29)\n" +
+            "There are 2 meals that contains pasta.";
 
 
     @BeforeEach

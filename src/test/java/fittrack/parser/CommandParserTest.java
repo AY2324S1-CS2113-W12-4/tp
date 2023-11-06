@@ -4,9 +4,9 @@ import fittrack.UserProfile;
 import fittrack.command.AddMealCommand;
 import fittrack.command.AddWorkoutCommand;
 import fittrack.command.BmiCommand;
-import fittrack.command.CalorieSumCommand;
+import fittrack.command.CaloriesConsumedCommand;
 import fittrack.command.CaloriesBurntCommand;
-import fittrack.command.CheckWeightRangeCommand;
+import fittrack.command.CheckRecommendedWeightCommand;
 import fittrack.command.Command;
 import fittrack.command.CommandResult;
 import fittrack.command.DeleteMealCommand;
@@ -18,9 +18,9 @@ import fittrack.command.FindWorkoutCommand;
 import fittrack.command.HelpCommand;
 import fittrack.command.InvalidCommand;
 import fittrack.command.SaveCommand;
-import fittrack.command.ViewMealsCommand;
+import fittrack.command.ViewMealCommand;
 import fittrack.command.ViewProfileCommand;
-import fittrack.command.ViewWorkoutsCommand;
+import fittrack.command.ViewWorkoutCommand;
 import fittrack.data.Date;
 import fittrack.data.Meal;
 import fittrack.data.Workout;
@@ -92,14 +92,14 @@ class CommandParserTest {
         getBlankCommandTest(ViewProfileCommand.class, "viewprofile", null);
         getBlankCommandTest(AddMealCommand.class, "addmeal", null);
         getBlankCommandTest(DeleteMealCommand.class, "deletemeal", null);
-        getBlankCommandTest(ViewMealsCommand.class, "viewmeals", null);
+        getBlankCommandTest(ViewMealCommand.class, "viewmeal", null);
         getBlankCommandTest(AddWorkoutCommand.class, "addworkout", null);
         getBlankCommandTest(DeleteWorkoutCommand.class, "deleteworkout", null);
-        getBlankCommandTest(ViewWorkoutsCommand.class, "viewworkouts", null);
+        getBlankCommandTest(ViewWorkoutCommand.class, "viewworkout", null);
         getBlankCommandTest(BmiCommand.class, "bmi", null);
         getBlankCommandTest(SaveCommand.class, "save", null);
-        getBlankCommandTest(CalorieSumCommand.class, "caloriesum", null);
-        getBlankCommandTest(CheckWeightRangeCommand.class, "checkweightrange", null);
+        getBlankCommandTest(CaloriesConsumedCommand.class, "caloriesconsumed", null);
+        getBlankCommandTest(CheckRecommendedWeightCommand.class, "checkrecommendedweight", null);
         getBlankCommandTest(CaloriesBurntCommand.class, "caloriesburnt", null);
         getBlankCommandTest(FindMealCommand.class, "findmeal", null);
         getBlankCommandTest(FindWorkoutCommand.class, "findworkout", null);
@@ -130,11 +130,12 @@ class CommandParserTest {
     @Test
     void parseProfile_h180w80l2000_success() {
         try {
-            UserProfile profile = new CommandParser().parseProfile("h/180 w/80 l/2000");
+            UserProfile profile = new CommandParser().parseProfile("h/180 w/80 g/M l/2000");
             assertEquals(180.0, profile.getHeight().value);
             assertEquals(80.0, profile.getWeight().value);
+            assertEquals('M', profile.getGender().getGender());
             assertEquals(2000.0, profile.getDailyCalorieLimit().value);
-        } catch (PatternMatchFailException | NegativeNumberException | NumberFormatException e) {
+        } catch (PatternMatchFailException | NegativeNumberException | NumberFormatException | WrongGenderException e) {
             throw new RuntimeException(e);
         }
     }
@@ -143,14 +144,14 @@ class CommandParserTest {
     void parseProfile_fail() {
         CommandParser parser = new CommandParser();
         assertThrows(PatternMatchFailException.class, () -> parser.parseProfile(""));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/ w/ l/"));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/180 w/80 l/"));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/ w/80 l/2000"));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/180 80 2000"));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 w/80 l/2000"));
-        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 80 2000"));
-        assertThrows(NumberFormatException.class, () -> parser.parseProfile("h/180 w/eighty l/2000"));
-        assertThrows(NegativeNumberException.class, () -> parser.parseProfile("h/-180 w/80 l/2000"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/ w/ g/ l/"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/180 w/80 g/ l/"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/ w/80 g/ l/2000"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("h/180 80 M 2000"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 w/80 g/M l/2000"));
+        assertThrows(PatternMatchFailException.class, () -> parser.parseProfile("180 80 M 2000"));
+        assertThrows(NumberFormatException.class, () -> parser.parseProfile("h/180 w/eighty g/M l/2000"));
+        assertThrows(NegativeNumberException.class, () -> parser.parseProfile("h/-180 w/80 g/M l/2000"));
     }
 
     @Test
@@ -159,7 +160,7 @@ class CommandParserTest {
             Meal meal = new CommandParser().parseMeal("name c/123.45");
             assertEquals("name", meal.getName());
             assertEquals(123.45, meal.getCalories().value);
-            assertEquals(Date.today(), meal.getMealDate());
+            assertEquals(Date.today(), meal.getDate());
         } catch (PatternMatchFailException | NumberFormatException e) {
             throw new RuntimeException(e);
         }
@@ -171,7 +172,7 @@ class CommandParserTest {
             Meal meal = new CommandParser().parseMeal("name c/123.45 d/2023-10-31");
             assertEquals("name", meal.getName());
             assertEquals(123.45, meal.getCalories().value);
-            assertEquals(new Date(2023, 10, 31), meal.getMealDate());
+            assertEquals(new Date(2023, 10, 31), meal.getDate());
         } catch (PatternMatchFailException | NumberFormatException e) {
             throw new RuntimeException(e);
         }
@@ -195,7 +196,7 @@ class CommandParserTest {
         try {
             Workout workout = new CommandParser().parseWorkout("name c/123.45");
             assertEquals("name", workout.getName());
-            assertEquals(123.45, workout.getCalories());
+            assertEquals(123.45, workout.getCalories().value);
             assertEquals(Date.today(), workout.getDate());
         } catch (PatternMatchFailException | NumberFormatException e) {
             throw new RuntimeException(e);
@@ -207,7 +208,7 @@ class CommandParserTest {
         try {
             Workout workout = new CommandParser().parseWorkout("name c/123.45 d/2023-10-31");
             assertEquals("name", workout.getName());
-            assertEquals(123.45, workout.getCalories());
+            assertEquals(123.45, workout.getCalories().value);
             assertEquals(new Date(2023, 10, 31), workout.getDate());
         } catch (PatternMatchFailException | NumberFormatException e) {
             throw new RuntimeException(e);

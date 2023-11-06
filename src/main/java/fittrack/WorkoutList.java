@@ -6,7 +6,7 @@ import fittrack.data.Workout;
 
 public class WorkoutList {
     private int workoutListSize = 0;
-    private ArrayList<Workout> workoutList;
+    private final ArrayList<Workout> workoutList;
 
     public WorkoutList() {
         workoutList = new ArrayList<>();
@@ -39,7 +39,7 @@ public class WorkoutList {
             output.append(counter).append(".").append(workout.toString()).append("\n");
             counter += 1;
         }
-        return output.toString();
+        return output.toString().strip();
     }
 
     public Workout getWorkout(int workoutIndex) {

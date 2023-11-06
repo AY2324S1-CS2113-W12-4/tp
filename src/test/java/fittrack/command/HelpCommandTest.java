@@ -1,7 +1,6 @@
 package fittrack.command;
 
 import fittrack.parser.CommandParser;
-import fittrack.storage.Storage;
 import org.junit.jupiter.api.Test;
 
 import static fittrack.command.HelpCommand.USAGE;
@@ -26,7 +25,7 @@ class HelpCommandTest {
     }
 
     @Test
-    void setArguments_help_helpOfHelp() throws Storage.StorageOperationException {
+    void setArguments_help_helpOfHelp() {
         HelpCommand helpCommand = new HelpCommand("help help");
         helpCommand.setArguments("help", new CommandParser());
         assertEquals(HelpCommand.HELP, helpCommand.getHelpMessage());

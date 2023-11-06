@@ -46,7 +46,7 @@ public abstract class Command {
      * @param parser parser
      * @throws ParseException if parse fails
      */
-    public abstract void setArguments(String args, CommandParser parser) 
+    public abstract void setArguments(String args, CommandParser parser)
             throws ParseException;
 
     /**

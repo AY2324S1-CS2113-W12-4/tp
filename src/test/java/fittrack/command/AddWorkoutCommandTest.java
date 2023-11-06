@@ -15,7 +15,7 @@ public class AddWorkoutCommandTest {
         CommandParser parser = new CommandParser();
         try {
             addWorkoutCommand.setArguments(args, parser);
-            double testCals = addWorkoutCommand.getWorkout().getCalories();
+            double testCals = addWorkoutCommand.getWorkout().getCalories().value;
             assertEquals(testCals, actual);
         } catch (ParseException e) {
             throw new RuntimeException(e);

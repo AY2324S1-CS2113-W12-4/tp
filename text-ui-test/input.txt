@@ -1,42 +1,46 @@
-h/180 w/eighty l/2000
-h/-180 w/80 l/2000
-h/-180 w/-80 l/-2000
-h/ w/ l/
-h/180 w/ l/2000
-180 w/80 l/20000
+h/180 w/eighty g/M l/2000
+h/-180 w/80 g/M l/2000
+h/-180 w/-80 g/M l/-2000
+h/ w/ g/ l/
+h/180 w/ g/M l/2000
+180 w/80 g/M l/20000
 180 80 2000
-h/180 w/80 l/2000
-view
+h/180 w/80 g/M l/2000
 viewprofile 123
 viewprofile
-editprofile h/170 w/70 l/1500
-editprofileh/120w/80l/100
-editprofile h/-180 w/70 l/1000
+editprofile h/170 w/70 g/M l/1500
+editprofileh/120w/80g/Ml/100
+editprofile h/-180 w/70 g/K l/1000
 viewprofile
 bmi
 bmi 30f
 addmeal pasta c/200 d/2023-10-22
 addmeal pizza 200
 addmeal cabonara pasta c/180 d/2023-10-29
+addmeal pizza c/230 d/2023-11-1
 viewmeal qw
 viewmeal
 addworkout run 400 d/2023-10-22
 addworkout run c/100 d/2023-10-22
 addworkout long run c/200 d/2023-10-29
-viewworkouts
+addworkout sprint run c/100 d/2023-11-1
+viewworkout
 findmeal
 findworkout
 findmeal pasta
 findworkout run
-calorieburnt
-calorieburnt 2023-10-29
-caloriesum 1
-calorisum
+caloriesburnt
+caloriesburnt 2023-10-29
+caloriesconsumed
+caloriesconsumed 2023-10-29
 deletemeal1
 deletemeal 1
 deleteworkout1
 deleteworkout 1
-checkweightrange
+checkrecommendedweight 1
+checkrecommendedweight
+save file 1
+save
 help
 help editprofile
 help viewprofile
@@ -45,11 +49,11 @@ help addmeal
 help viewmeal
 help deletemeal
 help addworkout
-help viewworkouts
+help viewworkout
 help deleteworkout
-help checkweightrange
+help checkrecommendedweight
 help caloriesburnt
-help caloriesum
+help caloriesconsumed
 help findmeal
 help findworkout
 help save

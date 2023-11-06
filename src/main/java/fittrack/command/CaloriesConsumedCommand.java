@@ -2,42 +2,42 @@ package fittrack.command;
 
 import fittrack.data.Calories;
 import fittrack.data.Date;
-import fittrack.data.Workout;
+import fittrack.data.Meal;
 import fittrack.parser.CommandParser;
 import fittrack.parser.PatternMatchFailException;
 
-// @@author NgLixuanNixon
-public class CaloriesBurntCommand extends Command {
-    public static final String COMMAND_WORD = "caloriesburnt";
+// @@author farissirraj
+public class CaloriesConsumedCommand extends Command {
+    public static final String COMMAND_WORD = "caloriesconsumed";
     private static final String DESCRIPTION =
-            String.format("`%s` shows your total calories burnt on a specific date.", COMMAND_WORD);
+            String.format("`%s` shows your total calories consumed on a specific date.", COMMAND_WORD);
     private static final String USAGE = String.format(
-            "Type `%s <DATE>` to see the total calories burnt on that date.\n" +
+            "Type `%s <DATE>` to see the total calories consumed on that date.\n" +
                     "You should type <DATE> in format of `yyyy-MM-dd`.",
             COMMAND_WORD
     );
     public static final String HELP = DESCRIPTION + "\n" + USAGE;
 
     private Date date;
-    private Calories caloriesBurnt;
+    private Calories caloriesConsumed;
 
-    public CaloriesBurntCommand(String commandLine) {
+    public CaloriesConsumedCommand(String commandLine) {
         super(commandLine);
     }
 
     @Override
     public CommandResult execute() {
         StringBuilder feedbackBuilder = new StringBuilder();
-        caloriesBurnt = new Calories(0);
+        caloriesConsumed = new Calories(0);
 
-        for (Workout workout: workoutList.getWorkoutList()) {
-            if (date.equals(workout.getDate())) {
-                caloriesBurnt = caloriesBurnt.sum(workout.getCalories());
-                feedbackBuilder.append(workout).append("\n");
+        for (Meal meal: mealList.getMealList()) {
+            if (date.equals(meal.getDate())) {
+                caloriesConsumed = caloriesConsumed.sum(meal.getCalories());
+                feedbackBuilder.append(meal).append("\n");
             }
         }
 
-        String summary = "Total calories burnt on " + date + ": " + caloriesBurnt;
+        String summary = "Total calories consumed on " + date + ": " + caloriesConsumed;
         feedbackBuilder.append(summary);
         return new CommandResult(feedbackBuilder.toString());
     }
@@ -47,13 +47,13 @@ public class CaloriesBurntCommand extends Command {
         date = parser.parseDate(args);
     }
 
-    Calories getCaloriesBurnt() {
-        return caloriesBurnt;
-    }
-
     @Override
     protected String getHelp() {
         return HELP;
+    }
+
+    Calories getCaloriesConsumed() {
+        return caloriesConsumed;
     }
 }
 // @@author

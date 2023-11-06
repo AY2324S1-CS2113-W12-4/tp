@@ -1,8 +1,6 @@
 package fittrack;
 
 import fittrack.command.CommandResult;
-import fittrack.data.Meal;
-import fittrack.data.Workout;
 
 import java.util.Scanner;
 
@@ -61,8 +59,8 @@ public class Ui {
         printLine();
     }
 
-    public void printVersion(String version) {
-        System.out.println(version);
+    public void printVersion() {
+        System.out.println(FitTrack.VERSION);
     }
 
     public void printCommandResult(CommandResult commandResult) {
@@ -85,17 +83,5 @@ public class Ui {
         System.out.println("Here are your profile settings.");
         System.out.println("Height: " + profile.toString());
         printLine();
-    }
-
-    public void printFoundMessage(String type, String keyword) {
-        System.out.println("These " + type + " contain the keyword " + keyword + ":");
-    }
-
-    public void printMealWithNumber(int mealNum, Meal meal) {
-        System.out.println((mealNum + 1) + ". " + meal.toString());
-    }
-
-    public void printWorkoutWithNumber(int workoutNum, Workout workout) {
-        System.out.println((workoutNum + 1) + ". " + workout.toString());
     }
 }

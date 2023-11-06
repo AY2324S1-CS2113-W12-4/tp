@@ -5,16 +5,16 @@ import fittrack.parser.CommandParser;
 import fittrack.parser.ParseException;
 import fittrack.parser.PatternMatchFailException;
 
-public class CheckWeightRangeCommand extends Command{
+public class CheckRecommendedWeightCommand extends Command{
 
-    public static final String COMMAND_WORD = "checkweightrange";
+    public static final String COMMAND_WORD = "checkrecommendedweight";
     private static final String DESCRIPTION =
             String.format("`%s` calculates the recommended weight for your height.", COMMAND_WORD);
     private static final String USAGE = String.format(
-            "Type `%s` calculate the recommended weight for your height.\n", COMMAND_WORD);
+            "Type `%s` calculate the recommended weight for your height.", COMMAND_WORD);
     public static final String HELP = DESCRIPTION + "\n" + USAGE;
 
-    public CheckWeightRangeCommand(String commandLine) {
+    public CheckRecommendedWeightCommand(String commandLine) {
         super(commandLine);
     }
 

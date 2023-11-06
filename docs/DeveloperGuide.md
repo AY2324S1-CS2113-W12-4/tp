@@ -17,13 +17,9 @@ Main structure of the code and the parse feature is adapted from [here](https://
 The ***Architecture Diagram*** above shows the high-level overview and design of the FitTrack app. 
 Given below is a quick overview of each component.
 
-<div markdown="span" class="alert alert-primary">
-
 :bulb: **Tip:** The '.puml' files used to create the diagrams in this document can be found in [diagrams](./diagrams) 
 folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) 
 to learn how to create and edit diagrams.
-
-</div>
 
 The **`Main`** class is called [`FitTrack`](../src/main/java/fittrack/FitTrack.java)
 
@@ -86,30 +82,34 @@ BMI, ideal weight for their height and so on.
 
 ## User Stories
 
-|Version| As a ... | I want to ...                                               | So that I can ...                                             |
-|--------|----------|-------------------------------------------------------------|---------------------------------------------------------------|
-|v1.0|new user| know how to use the product                                 | use the product                                               |
-|v1.0|new user| add my height and weight                                    | keep track of my height and weight                            |
-|v1.0|new user| add my calorie intake for a meal                            | record my calorie intake                                      |
-|v1.0|new user| add my daily workout                                        | track my calories burnt                                       |
-|v1.0|new user| set my daily calorie surplus limit                          | know whether my calorie surplus has exceeded the limit or not |
-|v1.0|new user| delete my daily workout                                     | track my calorie usage                                        |
-|v1.0|new user| delete my calorie intake for a meal                         | track my calorie intake                                       |
-|v1.0|new user| edit my height and weight information                       | apply my changed height and weight                            |
-|v1.0|new user| view my calorie intake for a meal                           | know my calorie intake                                        |
-|v1.0|new user| view my daily workout                                       | know my previous daily workouts                               |
-|v1.0|new user| view my height, weight, and daily calorie surplus limit     | know my height, weight and calorie surplus limit              |
-|v2.0|user| find a to-do item by name                                   | locate a to-do without having to go through the entire list   |
-|v2.0|user| Calculate my ideal weight for my height                     | maintain my weight in the healthy range                       |
-|v2.0|user| see the total calories I have consumed on a particular date | track my daily calories intake                                |
-|v2.0|user| see the total calories I have burnt on a particular date    | track my daily calories burnt                                 |
-|v2.0|user| find a meal or workout                                      | quickly search my past meals or workouts                      |
+| Version | As a ... | I want to ...                                               | So that I can ...                                             |
+|---------|----------|-------------------------------------------------------------|---------------------------------------------------------------|
+| v1.0    | new user | know how to use the product                                 | use the product                                               |
+| v1.0    | new user | add my height and weight                                    | keep track of my height and weight                            |
+| v1.0    | new user | add my calorie intake for a meal                            | record my calorie intake                                      |
+| v1.0    | new user | add my daily workout                                        | track my calories burnt                                       |
+| v1.0    | new user | set my daily calorie surplus limit                          | know whether my calorie surplus has exceeded the limit or not |
+| v1.0    | new user | delete my daily workout                                     | track my calorie usage                                        |
+| v1.0    | new user | delete my calorie intake for a meal                         | track my calorie intake                                       |
+| v1.0    | new user | edit my height and weight information                       | apply my changed height and weight                            |
+| v1.0    | new user | view my calorie intake for a meal                           | know my calorie intake                                        |
+| v1.0    | new user | view my daily workout                                       | know my previous daily workouts                               |
+| v1.0    | new user | view my height, weight, and daily calorie surplus limit     | know my height, weight and calorie surplus limit              |
+| v2.0    | user     | find a to-do item by name                                   | locate a to-do without having to go through the entire list   |
+| v2.0    | user     | Calculate my ideal weight for my height                     | maintain my weight in the healthy range                       |
+| v2.0    | user     | see the total calories I have consumed on a particular date | track my daily calories intake                                |
+| v2.0    | user     | see the total calories I have burnt on a particular date    | track my daily calories burnt                                 |
+| v2.0    | user     | find a meal or workout                                      | quickly search my past meals or workouts                      |
 
 
 
 ## Non-Functional Requirements
 
-{Give non-functional requirements}
+- Should be OS agnostic as long as it runs Java 11
+- Should be able to handle 1000+ workouts and meals
+- Does not require internet connection to run
+- Should be usable for an average typist.
+- Should be able to handle incorrect user input and provide feedback to the user.
 
 ## Glossary
 

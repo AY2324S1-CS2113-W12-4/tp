@@ -2,343 +2,392 @@
 
 ## Introduction
 
-Are you ready to embark on a journey towards a healthier, 
-more active lifestyle? Introducing FitTrack, 
-your ultimate fitness and nutrition companion. 
+Are you ready to embark on a journey towards a healthier, more active lifestyle?
+Introducing FitTrack, your ultimate fitness and nutrition companion.
 FitTrack is more than just an app; 
-it's your personal guide to achieving your health and fitness goals.
+it's your personal tracker to help you to achieve your health and fitness goals.
+
 
 ## Quick Start
 
 1. Ensure that you have Java 11 or above installed.
-2. Down the latest version of `FitTrack` from [here](https://github.com/AY2324S1-CS2113-W12-4/tp/releases).
-3. You should find the jar file in your default downloads folder. Please place the jar file into a separate folder that will be used as your `home folder`.
-4. Open a command terminal, and change the current working directory to the `home folder`.
-5. Type ```java -jar fittrack.jar``` in the terminal to open the application. You should see the welcome message "Hi!" on the next line.
-6. The application is now ready for you to use! Type `help` to see a list of commands that you will be able to use in the application.
+2. Download the latest version of `fittrack.jar` from [here](https://github.com/AY2324S1-CS2113-W12-4/tp/releases).
+3. Place the jar file into a separate folder that will be used as your "home folder".
+This step is not necessary, but recommended because the app will automatically create some files for the features.
+4. Open a command terminal, and change the current working directory to the "home folder".
+5. Type `java -jar fittrack.jar` in the terminal to open the application.
+You should see the welcome message.
+6. First time using the product, you have to enter your height, weight, gender, and daily calorie limit.
+Please type in format of `h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>`.
+7. The application is now ready for you to use! 
+Type `help` to see a list of commands that you will be able to use in the application.
 
 
 ## Features 
 
-* [Viewing help : `help`](#View-Help-Guide-help)
-* [Exiting the application : `exit`](#Exiting-the-application-exit)
+* [Viewing help guide : `help`](#viewing-help-guide-help)
+* [Exiting the application : `exit`](#exiting-the-application-exit)
+* [Saving to File: `save`](#saving-to-file-save)
 * [Editing your profile : `editprofile`](#editing-your-profile-editprofile)
 * [Viewing your profile : `viewprofile`](#viewing-your-profile-viewprofile)
-* [Adding a Meal : `addmeal`](#adding-a-meal-addmeal)
-* [Viewing list of all meals : `viewmeals`](#viewing-list-of-all-meals-viewmeals)
 * [Checking your current bmi : `bmi`](#checking-your-current-bmi-bmi)
-* [Delete a Meal : `deletemeal`](#delete-a-meal-deletemeal)
+* [Checking your recommended weight: `checkrecommendedweight`](#checking-your-recommended-weight-checkrecommendedweight)
+* [Adding a Meal : `addmeal`](#adding-a-meal-addmeal)
+* [Deleting a Meal : `deletemeal`](#deleting-a-meal-deletemeal)
+* [Viewing list of all meals : `viewmeal`](#viewing-list-of-all-meals-viewmeal)
+* [Finding meals by a keyword : `findmeal`](#finding-meals-by-a-keyword-findmeal)
+* [Checking total calories consumed on a specific date: `caloriesconsumed`](#checking-total-calories-consumed-on-a-specific-date-caloriesconsumed)
 * [Adding a workout : `addworkout`](#adding-a-workout-addworkout)
-* [Viewing list of workout : `viewWorkout`](#viewing-list-of-all-workouts-viewworkouts)
-* [Delete a Workout : `deletework`](#delete-a-workout-deleteworkout)
-* [Check weight range : `checkweightrange`](#check-weight-range-checkweightrange)
-* [Check total calories burnt on a specific date : `caloriesburnt`](#check-total-calories-burnt-on-specific-date-caloriesburnt)
-* [Check total calories burnt : `caloriesum`](#check-total-calories-burnt-caloriesum)
-* [Find a meal : `findmeal`](#find-a-meal-findmeal)
-* [Find a workout: `findworkout`](#find-a-workout-findworkout)
-* [Save to File: `save`](#save-to-file-save)
+* [Deleting a Workout : `deleteworkout`](#deleting-a-workout-deleteworkout)
+* [Viewing list of workout : `viewworkout`](#viewing-list-of-all-workouts-viewworkout)
+* [Find workouts by a keyword: `findworkout`](#finding-workouts-by-a-keyword-findworkout)
+* [Checking total calories burnt on a specific date: `caloriesburnt`](#checking-total-calories-burnt-on-a-specific-date-caloriesburnt)
 
 
-### View Help Guide: `help`
-Shows the list of commands with the command format and short explanation.
+### Viewing help guide: `help`
+Shows the list of commands you can use.
+With a command as an argument, it shows the format and explanation of the command.
 
-**Example of usage:**
+**Format**
+- `help`
+- `help <COMMAND>`
 
+**Example of usage**
 ```
 help
 ```
 
-**Expected output:**
+**Expected output**
 ```
+help
 `help` shows help message of the command.
 Existing commands:
-help, exit, editprofile, viewprofileaddmeal, deletemeal, viewmealsaddworkout, deleteworkout, viewworkouts
+help, exit, save, editprofile, viewprofile, bmi, checkrecommendedweight, 
+addmeal, deletemeal, viewmeal, findmeal, caloriesconsumed
+addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt
 Type `help` or `help <COMMAND>` to view help.
 ```
 
+
 ### Exiting the application: `exit`
-Exits Skippy Chat Bot application.
+Exits the application.
 
-**Example of usage:**
-
+**Example of usage**
 ```
 exit
 ```
 
-**Expected output:**
+**Expected output**
 ```
 Goodbye! Hope to see you again soon!
 ```
 
-### Editing Your Profile: `editprofile`
+
+### Saving to file: `save`
+Allows user to save profile data, meals and workouts to a text file.
+
+**Example of usage**
+```
+save
+```
+
+**Expected output**
+```
+Your data has been saved!
+```
+
+
+### Editing your profile: `editprofile`
 Allows user to edit their profile details.
 
-Format: `editprofile h/<height> w/<weight> l/<calories>`
+**Format**
+- `editprofile h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`
 
-Example of usage: 
+**Example of usage**
 ```
-editprofile h/170 w/70 l/100
+editprofile h/170 w/70 g/M l/100
 ```
-Expected output:
+
+**Expected output**
 ```
-I've edited the following:
-Height: 170.0
-Weight: 70.0
-Daily calorie limit: 100.0
+Here is your updated profile:
+Height: 170.0cm
+Weight: 70.0kg
+Daily calorie limit: 1500kcal
+BMI: 24.22
+Gender: Male
 ```
+
 
 ### Viewing your profile: `viewprofile`
 Lists all profile settings and details.
 
-Format: `viewprofile`
-
-**Example of usage:**
+**Example of usage**
 ```
 viewprofile
 ```
 
-**Expected output:**
+**Expected output**
 ```
 Your Profile:
-Height: 180.0
-Weight: 80.0
-Daily calorie limit: 3000.0
+Height: 170.0cm
+Weight: 70.0kg
+Daily calorie limit: 1500kcal
+BMI: 24.22
+Gender: Male
 ```
 
+
 ### Checking your current BMI: `bmi`
-Calculates your bmi based on your current height and weight, and tells you the category which your bmi falls under.
+Calculates BMI based on the profile given, and tells the category which the BMI falls under.
 
-Format: `bmi`
-
-**Example of usage:**
+**Example of usage**
 ```
 bmi
 ```
 
-**Expected output:**
+**Expected output**
 ```
 Your current BMI is 24.22
 BMI falls under NORMAL WEIGHT category
 ```
 
-### Adding a Meal: `addmeal`
+
+### Checking your recommended weight: `checkrecommendedweight`
+Allows user to check their recommended weight.
+
+**Example of usage**
+```
+checkrecommendedweight
+```
+
+**Expected output**
+```
+Recommended Weight: 66.02 kg
+```
+
+
+### Adding a meal: `addmeal`
 Allows user to add meals they have consumed.
+The date is treated as today if it is not specified.
 
-Format: `addmeal <meal> c/ <calories> d/ <date>`
+**Format**
+- `addmeal <MEAL_NAME> c/<CALORIES>`
+- `addmeal <MEAL_NAME> c/<CALORIES> d/<DATE>`
+- You should type `<DATE>` in format of `yyyy-MM-dd`.
 
-Example of usage:
+**Example of usage**
 ```
-addmeal pasta c/ 200 d/ 2023-10-23
+addmeal pasta c/200 d/2023-10-23
 ```
-Expected output:
+
+**Expected output**
 ```
 I've added the following meal:
-[M] pasta (200.0kcal, 2023-10-23)
+[M] pasta (200kcal, 2023-10-23)
 ```
 
-### Viewing List of All Meals: `viewmeals`
-Lists all the meals.
 
-Format: `viewmeals`
-
-**Example of usage:**
-```
-viewwmeals
-```
-
-**Expected output:**
-```
-These are the meals you have consumed:
-1.[M] pasta (200.0kcal, 2023-10-23)
-```
-
-### Delete a Meal: `deletemeal`
+### Deleting a meal: `deletemeal`
 Allows user to delete a meal they have added.
 
-Format: `deletemeal <index of meal>`
+**Format**
+`deletemeal <INDEX>`
 
-Example of usage:
+**Example of usage**
 ```
 deletemeal 1
 ```
-Expected output:
+
+**Expected output**
 ```
 I've deleted the following meal:
-[M] pasta (200.0kcal, 2023-10-23)
+[M] pasta (200kcal, 2023-10-23)
 ```
 
-### Adding a Workout: `addworkout`
+
+### Viewing list of all meals: `viewmeal`
+Lists all the meals.
+
+**Example of usage**
+```
+viewmeal
+```
+
+**Expected output**
+```
+These are the meals you have consumed:
+1.[M] aglio alio pasta (100kcal, 2023-10-29)
+2.[M] chips (50kcal, 2023-10-29)
+3.[M] carbonara pasta (100kcal, 2023-10-29)
+```
+
+
+### Finding meals by a keyword: `findmeal`
+Allows user to search for a meal in their meal list.
+
+**Format**
+- `findmeal <KEYWORD>`
+
+**Example of usage**
+```
+findmeal pasta
+```
+
+**Expected output**
+```
+These meals contain the keyword pasta:
+1.[M] aglio alio pasta (100kcal, 2023-10-29)
+2.[M] carbonara pasta (100kcal, 2023-10-29)
+There are 2 meals that contains pasta.
+```
+
+
+### Checking total calories consumed on a specific date: `caloriesconsumed`
+Allows user to check total calories consumed by meals on a specific date.
+
+**Format**
+- `caloriesconsumed <DATE>`
+- You should type `<DATE>` in format of `yyyy-MM-dd`.
+
+**Example of usage**
+```
+caloriesconsumed 2023-10-23
+```
+
+**Expected output**
+```
+[M] pasta (200kcal, 2023-10-23)
+Total calories consumed on 2023-10-23: 200kcal
+```
+
+
+### Adding a workout: `addworkout`
 Allows user to add workouts they have done.
 
-Format: `addworkout <workout> c/ <calories>`
+**Format**
+- `addworkout <WORKOUT_NAME> c/<CALORIES>`
+- `addworkout <WORKOUT_NAME> c/<CALORIES> d/<DATE>`
+- You should type `<DATE>` in format of `yyyy-MM-dd`.
 
-Example of usage:
+**Example of usage**
 ```
-addworkout running c/ 400 d/ 2023-10-23
+addworkout running c/400 d/2023-10-23
 ```
-Expected output:
+
+**Expected output**
 ```
 I've added the following workout:
-[W] running (400.0kcal, 2023-10-23)
+[W] running (400kcal, 2023-10-23)
 ```
 
-### Viewing List of All Workouts: `viewworkouts`
-Lists all the workouts.
 
-Format: `viewworkouts`
+### Deleting a workout: `deleteworkout`
+Allows user to delete a workout they have added.
+
+**Format**
+- `deleteworkout <INDEX>`
+
+**Example of usage**
+```
+deleteworkout 1
+```
+
+**Expected output**
+```
+I've deleted the following workout:
+[W] running (400kcal, 2023-10-23)
+```
+
+
+### Viewing list of all workouts: `viewworkout`
+Lists all the workouts.
 
 **Example of usage:**
 ```
-viewworkouts
+viewworkout
 ```
 
 **Expected output:**
 ```
 These are the workouts you have done:
-1.[W] running (400.0kcal, 2023-10-23)
+1.[W] running (400kcal, 2023-10-23)
 ```
 
-### Delete a Workout: `deleteworkout`
-Allows user to delete a workout they have added.
 
-Format: `deleteworkout <index of workout>`
+### Finding workouts by a keyword: `findworkout`
+Allows user to search for a workout in their workout list.
 
-Example of usage:
-```
-deleteworkout 1
-```
-Expected output:
-```
-I've deleted the following workout:
-[W] running (400.0kcal, 2023-10-23)
-```
+**Format**
+- `findworkout <KEYWORD>`
 
-### Check Weight Range: `checkweightrange`
-Allows user to check their weight range
-
-Format: `checkweightrange`
-
-Example of usage:
-```
-checkweightrange
-```
-
-Expected output:
-```
-Recommended Weight: 75.116 kg
-```
-
-### Check Total Calories Burnt On Specific Date: `caloriesburnt`
-Allows user to check their weight range
-
-Format: `caloriesburnt`
-
-Example of usage:
-```
-caloriesburnt
-```
-
-Expected output:
-```
-Total calories burnt on 2023-10-25: 200cals
-```
-
-### Check Total Calories Burnt: `caloriesum`
-Allows user to check the total calories burnt
-
-Format: `caloriesum`
-
-Example of usage:
-```
-caloriesum
-```
-
-Expected output:
-```
-Total Calories: 300kcals
-```
-
-### Find a Meal: `findmeal`
-Allows user to search for a meal in their meal list
-
-Format: `findmeal`
-
-Example of usage:
-```
-findmeal pasta
-```
-
-Expected output:
-```
-These meals contain the keyword pasta:
-1. [M] pasta         (200.0kcal, 2023-10-28)
-2. [M] aglio alio pasta       (100.0kcal, 2023-10-29)
-3. [M] cabonara pasta       (100.0kcal, 2023-10-29)
-```
-
-### Find a Workout: `findworkout`
-Allows user to search for a workout in their workout list
-
-Format: `findworkout`
-
-Example of usage:
+**Example of usage**
 ```
 findworkout run
 ```
 
-Expected output:
+**Expected output**
 ```
 These workouts contain the keyword run:
-1. [W] fast run   (100.0kcal, 2023-10-29)
-2. [W] slow run   (20.0kcal, 2023-10-29)
+1. [W] fast run (100kcal, 2023-10-29)
+2. [W] slow run (20kcal, 2023-10-29)
 ```
 
-### Save to File: `save`
-Allows user to save profile data, meals and workouts to a text file
 
-Format: `save`
+### Checking total calories burnt on a specific date: `caloriesburnt`
+Allows user to check total calories burnt by workouts on a specific date.
 
-Example of usage:
+**Format**
+- `caloriesburnt <DATE>`
+- You should type `<DATE>` in format of `yyyy-MM-dd`.
+
+**Example of usage**
 ```
-save
+caloriesburnt 2023-11-04
 ```
 
-Expected output:
+**Expected output**
 ```
-Your data has been saved!
+[W] running (100kcal, 2023-11-04)
+[W] swimming (200kcal, 2023-11-04)
+[W] walking (30kcal, 2023-11-04)
+Total calories burnt on 2023-11-04: 230kcal
 ```
+
 
 ## FAQ
 
 **Q**: How do I edit my profile? 
 
-**A**: Simply type editprofile, specify your height, weight and daily calories and hit enter. The App will update your details accordingly.
+**A**: Simply type `editprofile`, specify your height, weight and daily calories and hit enter. The App will update your details accordingly.
 
 **Q**: How do I check if my bmi is normal?
 
-**A**: Type bmi into the console and it will show you your current bmi and category.
+**A**: Type bmi into the console, and it will show you your current bmi and category.
 
 **Q**: How do I save my data that I have added?
 
-**A**: The program automatically saves all your data upon exiting or you can type save.
+**A**: The program automatically saves all your data upon exiting, or you can type `save`.
+
 
 ## Command Summary
 
-* Help List `help`
-* Exit Application `exit`
-* Edit Profile `editprofile`
-* View profile `viewprofile`
-* Check BMI `bmi`
-* Add Meal `addmeal`
-* View all meals consumed `viewmeals`
-* Delete Meal `deletemeal`
-* Add Work `addworkout`
-* View all workouts `viewworkouts`
-* Delete Work `deleteworkout`
-* Check your weight range `checkweightrange`
-* Check total calories burnt on a specific date `caloriesburnt`
-* Check total calories burnt `caloriesum`
-* Find a meal in meal list `findmeal`
-* Find a workout in workout list `findworkout`
-* Save to file `save`
-
+| Features                                            | Commands                 |
+|:----------------------------------------------------|:-------------------------|
+| Viewing help guide                                  | `help`                   |
+| Exiting the application                             | `exit`                   |
+| Saving to File                                      | `save`                   |
+| Editing your profile                                | `editprofile`            |
+| Viewing your profile                                | `viewprofile`            |
+| Checking your current bmi                           | `bmi`                    |
+| Checking your recommended weight                    | `checkrecommendedweight` |
+| Adding a Meal                                       | `addmeal`                |
+| Deleting a Meal                                     | `deletemeal`             |
+| Viewing list of all meals                           | `viewmeal`               |
+| Finding meals by a keyword                          | `findmeal`               |
+| Checking total calories consumed on a specific date | `caloriesconsumed`       |
+| Adding a workout                                    | `addworkout`             |
+| Deleting a Workout                                  | `deleteworkout`          |
+| Viewing list of workout                             | `viewworkout`            |
+| Find workouts by a keyword                          | `findworkout`            |
+| Checking total calories burnt on a specific date    | `caloriesburnt`          |
