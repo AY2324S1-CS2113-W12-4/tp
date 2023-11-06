@@ -21,6 +21,7 @@ import fittrack.command.ViewProfileCommand;
 import fittrack.command.ViewWorkoutsCommand;
 import fittrack.command.FindMealCommand;
 import fittrack.command.FindWorkoutCommand;
+import fittrack.command.CalorieBalanceCommand;
 import fittrack.data.Meal;
 import fittrack.data.Workout;
 import fittrack.data.Calories;
@@ -45,7 +46,7 @@ public class CommandParser {
             "editprofile, viewprofile, " +
             "addmeal, deletemeal, viewmeals, " +
             "addworkout, deleteworkout, viewworkouts, bmi, save, " +
-            "checkweightrange, findmeal, findworkout";
+            "checkweightrange, findmeal, findworkout, caloriebalance";
   
     private static final Pattern COMMAND_PATTERN = Pattern.compile(
             "(?<word>\\S+)(?<args>.*)"
@@ -128,6 +129,8 @@ public class CommandParser {
             return new FindMealCommand(commandLine);
         case FindWorkoutCommand.COMMAND_WORD:
             return new FindWorkoutCommand(commandLine);
+        case CalorieBalanceCommand.COMMAND_WORD:
+            return new CalorieBalanceCommand(commandLine);
         default:
             return new InvalidCommand(commandLine);
 
