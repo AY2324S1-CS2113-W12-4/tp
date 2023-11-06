@@ -45,7 +45,7 @@ public class CalorieBalanceCommand extends Command {
         }
         if(calorie_Balance < 0) {
             return new CommandResult("You have exceeded your calorie limit on " + date +
-                    ": " + "by" + calorie_Balance + "kcal\n" +
+                    " by: " + calorie_Balance + "kcal\n" +
                     "You are in a calorie surplus!\n" +
                     "Try doing more exercises if you want to eat!");
         } else if (calorie_Balance == 0) {
