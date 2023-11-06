@@ -34,26 +34,28 @@ public class CalorieBalanceCommand extends Command {
         calorie_Balance = userProfile.getDailyCalorieLimit().value;
         for(Workout workout: workoutList.getWorkoutList()) {
             if(date.equals(workout.getDate())) {
-                calorie_Balance += workout.getCalories();
+                calorie_Balance += workout.getCalories().value;
             }
         }
 
         for(Meal meal: mealList.getMealList()) {
-            if(date.equals(meal.getMealDate())) {
-                calorie_Balance -= meal.getCalories().getValue();
+            if(date.equals(meal.getDate())) {
+                calorie_Balance -= meal.getCalories().value;
             }
         }
         if(calorie_Balance < 0) {
             return new CommandResult("You have exceeded your calorie limit on " + date +
-                    ": " + "by" + calorie_Balance + "cals\n" +
+                    ": " + "by" + calorie_Balance + "kcal\n" +
+                    "You are in a calorie surplus!\n" +
                     "Try doing more exercises if you want to eat!");
         } else if (calorie_Balance == 0) {
             return new CommandResult("Your calorie balance on " + date +
-                    " is: " + calorie_Balance + "cals\n"
+                    " is: " + calorie_Balance + "kcal\n"
                     + "Try doing more exercise if you want to eat!");
         } else {
             return new CommandResult("Your calorie balance on " + date +
-                    " is: " + calorie_Balance + "cals\n" +
+                    " is: " + calorie_Balance + "kcal\n" +
+                    "You are in a calorie deficit!\n" +
                     "You can try to eat more!");
         }
     }
