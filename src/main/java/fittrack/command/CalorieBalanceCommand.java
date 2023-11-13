@@ -22,37 +22,37 @@ public class CalorieBalanceCommand extends Command {
 
     private Date date;
 
-    private double calorie_Balance;
+    private double calorieBalance;
     public CalorieBalanceCommand(String commandLine) {
         super(commandLine);
     }
 
     @Override
     public CommandResult execute() {
-        calorie_Balance = userProfile.getDailyCalorieLimit().value;
+        calorieBalance = userProfile.getDailyCalorieLimit().value;
         for(Workout workout: workoutList.getWorkoutList()) {
             if(date.equals(workout.getDate())) {
-                calorie_Balance += workout.getCalories().value;
+                calorieBalance += workout.getCalories().value;
             }
         }
 
         for(Meal meal: mealList.getMealList()) {
             if(date.equals(meal.getDate())) {
-                calorie_Balance -= meal.getCalories().value;
+                calorieBalance -= meal.getCalories().value;
             }
         }
-        if(calorie_Balance < 0) {
+        if(calorieBalance < 0) {
             return new CommandResult("You have exceeded your calorie limit on " + date +
-                    " by: " + (calorie_Balance * -1) + "kcal\n" +
+                    " by: " + (calorieBalance * -1) + "kcal\n" +
                     "You are in a calorie surplus!\n" +
                     "Try doing more exercises if you want to eat!");
-        } else if (calorie_Balance == 0) {
+        } else if (calorieBalance == 0) {
             return new CommandResult("Your calorie balance on " + date +
-                    " is: " + calorie_Balance + "kcal\n"
+                    " is: " + calorieBalance + "kcal\n"
                     + "Try doing more exercise if you want to eat!");
         } else {
             return new CommandResult("Your calorie balance on " + date +
-                    " is: " + calorie_Balance + "kcal\n" +
+                    " is: " + calorieBalance + "kcal\n" +
                     "You are in a calorie deficit!\n" +
                     "You can try to eat more!");
         }
