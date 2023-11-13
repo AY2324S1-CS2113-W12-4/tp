@@ -399,13 +399,21 @@ Try doing more exercise if you want to eat!
 Your calorie balance on 2023-11-07 is: 200.0kcal
 You are in a calorie deficit!
 You can try to eat more!
+
+### Check the ideal weight range given current height: `checkrecommendedweight`
+Allows the user to check the ideal weight range given their current height. This is calculate based
+on a standard formula.
+
+**Example of usage**
+```
+checkrecommendedweight
+
 ```
 
 ### Adding steps: `addsteps`
 Allows user to add their steps walked for a particular day.
 
 **Format**
-- `addsteps <NUMBER_OF_STEPS>`
 - `addsteps <NUMBER_OF_STEPS> d/<DATE>`
 - You should type `<DATE>` in format of `yyyy-MM-dd`.
 
@@ -419,7 +427,6 @@ addsteps 2000 d/2023-10-23
 I've added the following steps:
 [S] 2000 steps (2023-10-23)
 ```
-
 
 ### Deleting a step entry: `deletesteps`
 Allows user to delete a step entry they have added.
