@@ -43,7 +43,7 @@ public class CommandParser {
             "editprofile, viewprofile, bmi, checkrecommendedweight,\n" +
             "addmeal, deletemeal, viewmeal, findmeal, caloriesconsumed,\n" +
             "addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt,\n" +
-            "addsteps, deletesteps, viewsteps, totalsteps";
+            "caloriebalance, addsteps, deletesteps, viewsteps, totalsteps";
 
     private static final String WORD_CG = "word";
     private static final String ARGS_CG = "args";
