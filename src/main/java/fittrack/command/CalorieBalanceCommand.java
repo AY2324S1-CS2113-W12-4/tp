@@ -60,7 +60,7 @@ public class CalorieBalanceCommand extends Command {
 
     @Override
     public void setArguments(String args) throws ParseException {
-            date = Date.parseDate(args);
+        date = Date.parseDate(args);
     }
 
     @Override
