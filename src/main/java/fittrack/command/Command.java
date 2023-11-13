@@ -1,10 +1,9 @@
 package fittrack.command;
 
 import fittrack.MealList;
+import fittrack.StepList;
 import fittrack.UserProfile;
 import fittrack.WorkoutList;
-import fittrack.storage.Storage;
-import fittrack.parser.CommandParser;
 import fittrack.parser.ParseException;
 
 public abstract class Command {
@@ -12,7 +11,7 @@ public abstract class Command {
     protected UserProfile userProfile;
     protected MealList mealList;
     protected WorkoutList workoutList;
-    protected Storage storage;
+    protected StepList stepList;
 
     public Command(String commandLine) {
         this.commandLine = commandLine;
@@ -25,11 +24,16 @@ public abstract class Command {
      * @param mealList meal list
      * @param workoutList work list
      */
-    public void setData(UserProfile userProfile, MealList mealList, WorkoutList workoutList, Storage storage) {
+    public void setData(
+            UserProfile userProfile,
+            MealList mealList,
+            WorkoutList workoutList,
+            StepList stepList
+    ) {
         this.userProfile = userProfile;
         this.mealList = mealList;
         this.workoutList = workoutList;
-        this.storage = storage;
+        this.stepList = stepList;
     }
 
     /**
@@ -43,11 +47,9 @@ public abstract class Command {
      * Apply arguments to its field using parser.
      *
      * @param args arguments as a string
-     * @param parser parser
      * @throws ParseException if parse fails
      */
-    public abstract void setArguments(String args, CommandParser parser)
-            throws ParseException;
+    public abstract void setArguments(String args) throws ParseException;
 
     /**
      * Returns help of the command.

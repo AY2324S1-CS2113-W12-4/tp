@@ -1,7 +1,7 @@
 package fittrack.parser;
 
-public class NumberFormatException extends ParseException {
-    public NumberFormatException() {
-        super("Argument is not an integer.");
+public class NumberFormatException extends IllegalValueException {
+    public NumberFormatException(String message) {
+        super(message);
     }
 }

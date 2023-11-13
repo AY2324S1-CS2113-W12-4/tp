@@ -3,8 +3,7 @@ package fittrack.command;
 import fittrack.data.Meal;
 import fittrack.parser.CommandParser;
 import fittrack.parser.IndexOutOfBoundsException;
-import fittrack.parser.NumberFormatException;
-import fittrack.parser.PatternMatchFailException;
+import fittrack.parser.ParseException;
 
 public class DeleteMealCommand extends Command {
     public static final String COMMAND_WORD = "deletemeal";
@@ -23,9 +22,12 @@ public class DeleteMealCommand extends Command {
     // @@author NgLixuanNixon
     @Override
     public CommandResult execute() {
-        if (!mealList.isIndexValid(mealIndex)) {
-            return new CommandParser()
-                    .getInvalidCommandResult(commandLine, new IndexOutOfBoundsException());
+        if (mealList.isEmpty()) {
+            return CommandParser.
+                    getInvalidCommandResult(commandLine, IndexOutOfBoundsException.LIST_EMPTY);
+        } else if (!mealList.isIndexValid(mealIndex)) {
+            return CommandParser.
+                    getInvalidCommandResult(commandLine, IndexOutOfBoundsException.INDEX_INVALID);
         }
 
         Meal toDelete = mealList.getMeal(mealIndex);
@@ -36,9 +38,8 @@ public class DeleteMealCommand extends Command {
 
     // @@author NgLixuanNixon
     @Override
-    public void setArguments(String args, CommandParser parser)
-            throws PatternMatchFailException, NumberFormatException {
-        mealIndex = parser.parseIndex(args);
+    public void setArguments(String args) throws ParseException {
+        mealIndex = CommandParser.parseIndex(args);
     }
     // @@author
 

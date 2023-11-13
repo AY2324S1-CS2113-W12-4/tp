@@ -1,9 +1,7 @@
 package fittrack.command;
 
 import fittrack.data.Meal;
-import fittrack.parser.CommandParser;
-import fittrack.parser.NumberFormatException;
-import fittrack.parser.PatternMatchFailException;
+import fittrack.parser.ParseException;
 
 public class AddMealCommand extends Command {
     public static final String COMMAND_WORD = "addmeal";
@@ -30,9 +28,8 @@ public class AddMealCommand extends Command {
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser)
-            throws PatternMatchFailException, NumberFormatException {
-        newMeal = parser.parseMeal(args);
+    public void setArguments(String args) throws ParseException {
+        newMeal = Meal.parseMeal(args);
     }
 
     public Meal getMeal(){

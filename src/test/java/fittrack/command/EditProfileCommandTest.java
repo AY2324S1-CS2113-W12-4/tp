@@ -1,7 +1,6 @@
 package fittrack.command;
 
 import fittrack.UserProfile;
-import fittrack.parser.CommandParser;
 import fittrack.parser.PatternMatchFailException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -23,10 +22,9 @@ public class EditProfileCommandTest {
     @Test
     public void setArgumentsInvalidArgumentsThrowsException() {
         String invalidArgs = "invalid_arguments";
-        CommandParser parser = new CommandParser();
 
         assertThrows(PatternMatchFailException.class, () -> {
-            editProfileCommand.setArguments(invalidArgs, parser);
+            editProfileCommand.setArguments(invalidArgs);
         });
     }
 

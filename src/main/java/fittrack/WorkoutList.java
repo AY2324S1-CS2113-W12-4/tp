@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import fittrack.data.Workout;
 
 public class WorkoutList {
-    private int workoutListSize = 0;
     private final ArrayList<Workout> workoutList;
 
     public WorkoutList() {
@@ -18,33 +17,36 @@ public class WorkoutList {
 
     public void addToList(Workout newWorkout) {
         workoutList.add(newWorkout);
-        workoutListSize++;
     }
 
     public void deleteWorkout(int workoutIndex) {
         assert isIndexValid(workoutIndex);
         workoutList.remove((workoutIndex - 1));
-        workoutListSize--;
     }
 
-    public int getWorkoutListSize() {
-        return workoutListSize;
-    }
-
+    // @@author farissirraj
     @Override
     public String toString() {
-        int counter = 1;
         StringBuilder output = new StringBuilder();
+
+        int index = 1;
         for (Workout workout : workoutList) {
-            output.append(counter).append(".").append(workout.toString()).append("\n");
-            counter += 1;
+            // Example: `1.[W] workout (100kcal, 2000-01-01)`
+            String workoutWithIndex = index + "." + workout;
+            output.append(workoutWithIndex).append("\n");
+            index += 1;
         }
         return output.toString().strip();
     }
+    // @@author
 
     public Workout getWorkout(int workoutIndex) {
         assert isIndexValid(workoutIndex);
         return workoutList.get(workoutIndex - 1);
+    }
+
+    public boolean isEmpty() {
+        return workoutList.isEmpty();
     }
 
     public boolean isIndexValid(int index) {

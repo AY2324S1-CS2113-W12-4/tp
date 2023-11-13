@@ -6,7 +6,6 @@ import fittrack.WorkoutList;
 import fittrack.data.Calories;
 import fittrack.data.Date;
 import fittrack.data.Workout;
-import fittrack.parser.CommandParser;
 import fittrack.parser.PatternMatchFailException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -45,7 +44,7 @@ class FindWorkoutCommandTest {
     void assertFindCommandBehavior(String commandLine, String keyword, String expectedResult)
             throws PatternMatchFailException {
         FindWorkoutCommand findCommand = new FindWorkoutCommand(commandLine);
-        findCommand.setArguments(keyword, new CommandParser());
+        findCommand.setArguments(keyword);
         findCommand.setData(null, null, workoutList, null);
         CommandResult result = findCommand.execute();
         assertEquals(expectedResult, result.getFeedback());

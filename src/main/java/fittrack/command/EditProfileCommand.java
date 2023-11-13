@@ -1,11 +1,7 @@
 package fittrack.command;
 
 import fittrack.UserProfile;
-import fittrack.parser.CommandParser;
-import fittrack.parser.NegativeNumberException;
-import fittrack.parser.NumberFormatException;
-import fittrack.parser.PatternMatchFailException;
-import fittrack.parser.WrongGenderException;
+import fittrack.parser.ParseException;
 
 public class EditProfileCommand extends Command {
     public static final String COMMAND_WORD = "editprofile";
@@ -31,9 +27,8 @@ public class EditProfileCommand extends Command {
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser)
-            throws PatternMatchFailException, NumberFormatException, NegativeNumberException, WrongGenderException {
-        newProfile = parser.parseProfile(args);
+    public void setArguments(String args) throws ParseException {
+        newProfile = UserProfile.parseUserProfile(args);
     }
 
     @Override

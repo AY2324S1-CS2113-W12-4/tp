@@ -6,7 +6,6 @@ import fittrack.MealList;
 import fittrack.data.Calories;
 import fittrack.data.Date;
 import fittrack.data.Meal;
-import fittrack.parser.CommandParser;
 import fittrack.parser.PatternMatchFailException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,7 +40,7 @@ class FindMealCommandTest {
      */
     void assertFindCommandBehavior(String commandLine, String keyword) throws PatternMatchFailException {
         FindMealCommand findCommand = new FindMealCommand(commandLine);
-        findCommand.setArguments(keyword, new CommandParser());
+        findCommand.setArguments(keyword);
         findCommand.setData(null, mealList, null, null);
         CommandResult result = findCommand.execute();
         assertEquals(result1, result.getFeedback());

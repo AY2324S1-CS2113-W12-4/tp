@@ -1,5 +1,5 @@
 package fittrack.command;
-import fittrack.parser.CommandParser;
+
 import fittrack.parser.ParseException;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -12,9 +12,8 @@ public class AddWorkoutCommandTest {
         String args = "Workout c/100";
         AddWorkoutCommand addWorkoutCommand = new AddWorkoutCommand("addworkout " + args);
         double actual = 100;
-        CommandParser parser = new CommandParser();
         try {
-            addWorkoutCommand.setArguments(args, parser);
+            addWorkoutCommand.setArguments(args);
             double testCals = addWorkoutCommand.getWorkout().getCalories().value;
             assertEquals(testCals, actual);
         } catch (ParseException e) {

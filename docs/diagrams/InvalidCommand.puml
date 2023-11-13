@@ -6,7 +6,7 @@ participant ": CommandParser" as parser
 participant ": InvalidCommand" as invalidCmd
 participant ": HelpCommand" as helpCmd
 
-[-> parser ++: getInvalidCommand(inputLine: String[, ...])
+[-> parser ++: parser.getInvalidCommand(\n    inputLine: String, e: ParseException\n)
 note left
 getInvalidCommand method is called when
   1. input command fails matching, or

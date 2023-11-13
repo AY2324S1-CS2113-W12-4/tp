@@ -1,6 +1,7 @@
 h/180 w/eighty g/M l/2000
 h/-180 w/80 g/M l/2000
-h/-180 w/-80 g/M l/-2000
+h/180 w/-80 g/M l/-2000
+h/180 w/80 g/M l/-2000
 h/ w/ g/ l/
 h/180 w/ g/M l/2000
 180 w/80 g/M l/20000
@@ -39,8 +40,19 @@ deleteworkout1
 deleteworkout 1
 checkrecommendedweight 1
 checkrecommendedweight
-save file 1
-save
+addsteps 2000 d/
+addsteps
+addsteps2000d/2023-11-11
+addsteps 200 d/2023-11
+addsteps 2000 2023-11-11
+addsteps d/2023-11-11
+addsteps 2000 d/2023-11-11
+addsteps d/
+viewsteps
+viewsteps
+deletesteps 2
+deletesteps 1
+viewsteps
 help
 help editprofile
 help viewprofile
@@ -56,5 +68,7 @@ help caloriesburnt
 help caloriesconsumed
 help findmeal
 help findworkout
-help save
+
+foo
+ foo
 exit

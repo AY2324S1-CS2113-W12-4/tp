@@ -1,3 +1,4 @@
+Directory created: data
 FitTrack - Version 2.1
 Welcome to FitTrack!
 ___________.__  __ ___________                     __
@@ -6,232 +7,316 @@ ___________.__  __ ___________                     __
  |     \   |  ||  |  |    |   |  | \/ __ \  \___|    <
  \___  /   |__||__|  |____|   |__|  (____  /\___  >__|_ \
 ____________________________________________________________
-Directory created: data
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Please enter numbers for height, weight, and daily calorie limit.
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Please enter a number greater than 0
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Please enter a number greater than 0
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
-Wrong format. Please enter h/<height> w/<weight> g/<gender> l/<dailyCalorieLimit>
-Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal):
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+Weight must be a number.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+Height must be a positive value.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+Weight must be a positive value.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+Calories must not be a negative value.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+The input pattern is not valid.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+The input pattern is not valid.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+The input pattern is not valid.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
+The input pattern is not valid.
+
+Please enter your height (in cm), weight (in kg), gender (M or F), and daily calorie limit (in kcal).
+Enter in format of `h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>`.
 Here are your profile settings.
 Height: Height: 180.0cm
 Weight: 80.0kg
+Gender: Male
 Daily calorie limit: 2000kcal
 BMI: 24.69
-Gender: Male
 ____________________________________________________________
-`viewprofile 123` is an invalid command.
+Hello and welcome! How can I help you today?
+____________________________________________________________
+`viewprofile 123` is an invalid command. The input pattern is not valid.
 `viewprofile` shows all profile details.
 Type `viewprofile` to view your profile.
-
+____________________________________________________________
 Your Profile:
 Height: 180.0cm
 Weight: 80.0kg
+Gender: Male
 Daily calorie limit: 2000kcal
 BMI: 24.69
-Gender: Male
-
+____________________________________________________________
 Here is your updated profile:
 Height: 170.0cm
 Weight: 70.0kg
+Gender: Male
 Daily calorie limit: 1500kcal
 BMI: 24.22
-Gender: Male
-
+____________________________________________________________
 `editprofileh/120w/80g/Ml/100` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
-
-`editprofile h/-180 w/70 g/K l/1000` is an invalid command.
+____________________________________________________________
+`editprofile h/-180 w/70 g/K l/1000` is an invalid command. Height must be a positive value.
 `editprofile` allows you to edit your profile.
 Type `editprofile h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>` to edit.
-
+____________________________________________________________
 Your Profile:
 Height: 170.0cm
 Weight: 70.0kg
+Gender: Male
 Daily calorie limit: 1500kcal
 BMI: 24.22
-Gender: Male
-
+____________________________________________________________
 Your current BMI is 24.22
 BMI falls under NORMAL WEIGHT category
-
-`bmi 30f` is an invalid command.
+____________________________________________________________
+`bmi 30f` is an invalid command. The input pattern is not valid.
 `bmi` calculates your current BMI.
 Type `bmi` to view your BMI.
-
+____________________________________________________________
 I've added the following meal:
 [M] pasta (200kcal, 2023-10-22)
-
-`addmeal pizza 200` is an invalid command.
+____________________________________________________________
+`addmeal pizza 200` is an invalid command. The input pattern is not valid.
 `addmeal` adds your daily meal data to the list.
 Type `addmeal <MEAL_NAME> c/<CALORIES>` to add today's meal.
 Type `addmeal <MEAL_NAME> c/<CALORIES> d/<DATE>` to add a meal.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 I've added the following meal:
 [M] cabonara pasta (180kcal, 2023-10-29)
-
-`addmeal pizza c/230 d/2023-11-1` is an invalid command.
+____________________________________________________________
+`addmeal pizza c/230 d/2023-11-1` is an invalid command. The date format is not valid.
 `addmeal` adds your daily meal data to the list.
 Type `addmeal <MEAL_NAME> c/<CALORIES>` to add today's meal.
 Type `addmeal <MEAL_NAME> c/<CALORIES> d/<DATE>` to add a meal.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
-`viewmeal qw` is an invalid command.
+____________________________________________________________
+`viewmeal qw` is an invalid command. The input pattern is not valid.
 `viewmeal` shows the list of all meals.
 Type `viewmeal` to view the list of meals.
-
+____________________________________________________________
 These are the meals you have consumed:
 1.[M] pasta (200kcal, 2023-10-22)
 2.[M] cabonara pasta (180kcal, 2023-10-29)
-
-`addworkout run 400 d/2023-10-22` is an invalid command.
+____________________________________________________________
+`addworkout run 400 d/2023-10-22` is an invalid command. The input pattern is not valid.
 `addworkout` adds your daily workout data to the list.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES>` to add today's workout.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES> d/<DATE>` to add a workout.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 I've added the following workout:
 [W] run (100kcal, 2023-10-22)
-
+____________________________________________________________
 I've added the following workout:
 [W] long run (200kcal, 2023-10-29)
-
-`addworkout sprint run c/100 d/2023-11-1` is an invalid command.
+____________________________________________________________
+`addworkout sprint run c/100 d/2023-11-1` is an invalid command. The date format is not valid.
 `addworkout` adds your daily workout data to the list.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES>` to add today's workout.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES> d/<DATE>` to add a workout.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 These are the workouts you have done:
 1.[W] run (100kcal, 2023-10-22)
 2.[W] long run (200kcal, 2023-10-29)
-
-`findmeal` is an invalid command.
+____________________________________________________________
+`findmeal` is an invalid command. The input pattern is not valid.
 `findmeal` finds the meal you are looking for in your meal list.
 Type `findmeal <KEYWORD>` to find a meal.
-
-`findworkout` is an invalid command.
+____________________________________________________________
+`findworkout` is an invalid command. The input pattern is not valid.
 `findworkout` finds the workout you are looking for in your workout list.
 Type `findworkout <KEYWORD>` to find a workout.
-
+____________________________________________________________
 These meals contain the keyword pasta:
 1.[M] pasta (200kcal, 2023-10-22)
 2.[M] cabonara pasta (180kcal, 2023-10-29)
 There are 2 meals that contains pasta.
-
+____________________________________________________________
 These workouts contain the keyword run:
 1.[W] run (100kcal, 2023-10-22)
 2.[W] long run (200kcal, 2023-10-29)
 There are 2 workouts that contains run.
-
-`caloriesburnt` is an invalid command.
+____________________________________________________________
+`caloriesburnt` is an invalid command. The date format is not valid.
 `caloriesburnt` shows your total calories burnt on a specific date.
 Type `caloriesburnt <DATE>` to see the total calories burnt on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 [W] long run (200kcal, 2023-10-29)
 Total calories burnt on 2023-10-29: 200kcal
-
-`caloriesconsumed` is an invalid command.
+____________________________________________________________
+`caloriesconsumed` is an invalid command. The date format is not valid.
 `caloriesconsumed` shows your total calories consumed on a specific date.
 Type `caloriesconsumed <DATE>` to see the total calories consumed on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 [M] cabonara pasta (180kcal, 2023-10-29)
 Total calories consumed on 2023-10-29: 180kcal
-
+____________________________________________________________
 `deletemeal1` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
-
+____________________________________________________________
 I've deleted the following meal:
 [M] pasta (200kcal, 2023-10-22)
-
+____________________________________________________________
 `deleteworkout1` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
-
+____________________________________________________________
 I've deleted the following workout:
 [W] run (100kcal, 2023-10-22)
-
-`checkrecommendedweight 1` is an invalid command.
+____________________________________________________________
+`checkrecommendedweight 1` is an invalid command. The input pattern is not valid.
 `checkrecommendedweight` calculates the recommended weight for your height.
 Type `checkrecommendedweight` calculate the recommended weight for your height.
-
+____________________________________________________________
 Recommended Weight: 66.02 kg
+____________________________________________________________
+`addsteps 2000 d/` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps` is an invalid command. The input pattern is not valid.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps2000d/2023-11-11` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+____________________________________________________________
+`addsteps 200 d/2023-11` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps 2000 2023-11-11` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps d/2023-11-11` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps 2000 d/2023-11-11` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+`addsteps d/` is an invalid command. Steps must be a positive integer.
+`addsteps` adds your step data to the list.
+Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
+Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
+You should type <DATE> in format of `yyyy-MM-dd`.
+____________________________________________________________
+These are the steps you have done:
 
-`save file 1` is an invalid command.
-`save` saves your profile, meals and workout data.
-Type `save` to save your profile, meals and workout data.
+____________________________________________________________
+These are the steps you have done:
 
-Your data has been saved!
+____________________________________________________________
+`deletesteps 2` is an invalid command. Index out of range. List is empty!
+`deletesteps` deletes your steps entry from the list.
+Type `deletesteps <INDEX>` to delete the step entry by a index.
+____________________________________________________________
+`deletesteps 1` is an invalid command. Index out of range. List is empty!
+`deletesteps` deletes your steps entry from the list.
+Type `deletesteps <INDEX>` to delete the step entry by a index.
+____________________________________________________________
+These are the steps you have done:
 
+____________________________________________________________
 `help` shows help message of the command.
 Existing commands:
-help, exit, save,
+help, exit,
 editprofile, viewprofile, bmi, checkrecommendedweight,
 addmeal, deletemeal, viewmeal, findmeal, caloriesconsumed,
-addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt
+addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt,
+addsteps, deletesteps, viewsteps, totalsteps
 Type `help` or `help <COMMAND>` to view help.
-
+____________________________________________________________
 `editprofile` allows you to edit your profile.
 Type `editprofile h/<HEIGHT> w/<WEIGHT> g/<GENDER> l/<CALORIE_LIMIT>` to edit.
-
+____________________________________________________________
 `viewprofile` shows all profile details.
 Type `viewprofile` to view your profile.
-
+____________________________________________________________
 `bmi` calculates your current BMI.
 Type `bmi` to view your BMI.
-
+____________________________________________________________
 `addmeal` adds your daily meal data to the list.
 Type `addmeal <MEAL_NAME> c/<CALORIES>` to add today's meal.
 Type `addmeal <MEAL_NAME> c/<CALORIES> d/<DATE>` to add a meal.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 `viewmeal` shows the list of all meals.
 Type `viewmeal` to view the list of meals.
-
+____________________________________________________________
 `deletemeal` deletes your daily meal data from the list.
 Type `deletemeal <INDEX>` to delete the meal by an index.
-
+____________________________________________________________
 `addworkout` adds your daily workout data to the list.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES>` to add today's workout.
 Type `addworkout <WORKOUT_NAME> c/<CALORIES> d/<DATE>` to add a workout.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 `viewworkout` shows the list of all workouts.
 Type `viewworkout` to view the list of your workouts.
-
+____________________________________________________________
 `deleteworkout` deletes your daily workout data from the list.
 Type `deleteworkout <INDEX>` to delete the workout by an index.
-
+____________________________________________________________
 `checkrecommendedweight` calculates the recommended weight for your height.
 Type `checkrecommendedweight` calculate the recommended weight for your height.
-
+____________________________________________________________
 `caloriesburnt` shows your total calories burnt on a specific date.
 Type `caloriesburnt <DATE>` to see the total calories burnt on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 `caloriesconsumed` shows your total calories consumed on a specific date.
 Type `caloriesconsumed <DATE>` to see the total calories consumed on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
-
+____________________________________________________________
 `findmeal` finds the meal you are looking for in your meal list.
 Type `findmeal <KEYWORD>` to find a meal.
-
+____________________________________________________________
 `findworkout` finds the workout you are looking for in your workout list.
 Type `findworkout <KEYWORD>` to find a workout.
-
-`save` saves your profile, meals and workout data.
-Type `save` to save your profile, meals and workout data.
-
+____________________________________________________________
+`` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+____________________________________________________________
+`foo` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+____________________________________________________________
+`foo` is an invalid command.
+Type `help` or `help <COMMAND>` to view help.
+____________________________________________________________
 Goodbye! Hope to see you soon!
-
+____________________________________________________________

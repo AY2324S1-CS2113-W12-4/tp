@@ -1,12 +1,15 @@
 package fittrack.storage;
 
-import fittrack.MealList;
+import fittrack.Ui;
 import fittrack.UserProfile;
+import fittrack.MealList;
+import fittrack.StepList;
 import fittrack.WorkoutList;
 import fittrack.data.Meal;
+import fittrack.data.Step;
 import fittrack.data.Workout;
-import fittrack.Ui;
 import fittrack.parser.IllegalValueException;
+
 import java.io.FileNotFoundException;
 
 import java.io.File;
@@ -18,20 +21,25 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 
-
+// @@author J0shuaLeong
 public class Storage {
 
     private static final String FILE_DIRECTORY = "data";
-    private static final String PROFILE_FILE_PATH = "./data/Profile.txt";
+    private static final String PROFILE_FILE_PATH = "./data/profile.txt";
     private static final String MEAL_LIST_FILE_PATH = "./data/mealList.txt";
     private static final String WORKOUT_LIST_FILE_PATH = "./data/workoutList.txt";
-    private final Ui ui = new Ui();
+    private static final String STEP_LIST_FILE_PATH = "./data/stepList.txt";
+    private static final String FILE_TYPE = ".txt";
+    private Ui ui = new Ui();
+
     private File profileFile;
     private File mealFile;
     private File workoutFile;
+    private File stepFile;
     private Path profilePath;
     private Path mealListPath;
     private Path workoutListPath;
+    private Path stepListPath;
 
 
     /**
@@ -42,21 +50,19 @@ public class Storage {
         this.profileFile = new File(PROFILE_FILE_PATH);
         this.mealFile = new File(MEAL_LIST_FILE_PATH);
         this.workoutFile = new File(WORKOUT_LIST_FILE_PATH);
+        this.stepFile = new File(STEP_LIST_FILE_PATH);
 
         assert profileFile != null;
         assert mealFile != null;
         assert workoutFile != null;
+        assert stepFile != null;
 
         try {
             File f = new File(FILE_DIRECTORY);
 
             if (f.mkdir()) { // if the directory does not exist, create a new one
                 System.out.println("Directory created: " + f.getName());
-            } else {
-                System.out.println("Directory already exists.");
-                ui.printLine();
             }
-
             if (!this.profileFile.exists()) { // if file that stores profile data does not exist, create one
                 profileFile.createNewFile();
             }
@@ -66,6 +72,9 @@ public class Storage {
             if (!this.workoutFile.exists()) { // if file that stores workouts does not exist, create one
                 workoutFile.createNewFile();
             }
+            if (!this.stepFile.exists()) { // if file that stores steps does not exist, create one
+                stepFile.createNewFile();
+            }
         } catch (IOException e) {
             System.out.println("Failed to create directory and file.");
         }
@@ -74,12 +83,14 @@ public class Storage {
     /**
      * @throws InvalidStorageFilePathException if the given file path is invalid
      */
-    public Storage(String profileFilePath, String mealFilePath, String workoutFilePath)
+    public Storage(String profileFilePath, String mealFilePath, String workoutFilePath, String stepFilePath)
             throws InvalidStorageFilePathException {
         profilePath = Paths.get(profileFilePath);
         mealListPath = Paths.get(mealFilePath);
         workoutListPath = Paths.get(workoutFilePath);
-        if (!isValidPath(profilePath) || !isValidPath(mealListPath) || !isValidPath(workoutListPath)) {
+        stepListPath = Paths.get(stepFilePath);
+        if (!isValidPath(profilePath) || !isValidPath(mealListPath) || !isValidPath(workoutListPath) ||
+                !isValidPath(stepListPath)) {
             throw new InvalidStorageFilePathException("Storage file should end with '.txt'");
         }
     }
@@ -89,7 +100,7 @@ public class Storage {
      * The file path is considered acceptable if it ends with '.txt'
      */
     private static boolean isValidPath(Path filePath) {
-        return filePath.toString().endsWith(".txt");
+        return filePath.toString().endsWith(FILE_TYPE);
     }
 
     /**
@@ -98,8 +109,9 @@ public class Storage {
      * @throws IOException error
      */
     public void saveProfile(UserProfile userProfile) throws IOException {
+        assert userProfile != null;
         FileWriter file = new FileWriter(PROFILE_FILE_PATH);
-        file.write(userProfile.toString() + "\n");
+        file.write(userProfile + "\n");
         file.close();
     }
 
@@ -109,6 +121,7 @@ public class Storage {
      * @throws IOException error
      */
     public void saveMeals(MealList mealList) throws IOException {
+        assert mealList != null;
         ArrayList<Meal> mealArr = mealList.getMealList();
         FileWriter file = new FileWriter(MEAL_LIST_FILE_PATH);
         for (Meal m : mealArr) {
@@ -123,10 +136,26 @@ public class Storage {
      * @throws IOException error
      */
     public void saveWorkouts(WorkoutList workoutList) throws IOException {
+        assert workoutList != null;
         ArrayList<Workout> workoutArr = workoutList.getWorkoutList();
         FileWriter file = new FileWriter(WORKOUT_LIST_FILE_PATH);
         for (Workout w : workoutArr) {
             file.write(w.formatToFile() + "\n");
+        }
+        file.close();
+    }
+
+    /**
+     * Saves step list into storage
+     *
+     * @throws IOException error
+     */
+    public void saveSteps(StepList stepList) throws IOException {
+        assert stepList != null;
+        ArrayList<Step> stepArr = stepList.getStepList();
+        FileWriter file = new FileWriter(STEP_LIST_FILE_PATH);
+        for (Step s : stepArr) {
+            file.write(s.formatToFile() + "\n");
         }
         file.close();
     }
@@ -139,11 +168,20 @@ public class Storage {
      * @param workoutList list of workouts
      * @throws IOException error
      */
-    public void save(UserProfile userProfile, MealList mealList, WorkoutList workoutList)
+    public void save(UserProfile userProfile, MealList mealList, WorkoutList workoutList, StepList stepList)
             throws IOException {
-        saveProfile(userProfile);
-        saveMeals(mealList);
-        saveWorkouts(workoutList);
+        if (userProfile != null) {
+            saveProfile(userProfile);
+        }
+        if (mealList != null) {
+            saveMeals(mealList);
+        }
+        if (workoutList != null) {
+            saveWorkouts(workoutList);
+        }
+        if (stepList != null) {
+            saveSteps(stepList);
+        }
     }
 
     /**
@@ -152,22 +190,18 @@ public class Storage {
      *
      * @throws StorageOperationException if there were errors reading and/or converting data from file.
      */
-    public UserProfile profileLoad() throws StorageOperationException {
+    public UserProfile loadProfile() throws StorageOperationException {
         profilePath = Paths.get(PROFILE_FILE_PATH);
         if (!Files.exists(profilePath) || !Files.isRegularFile(profilePath)) {
             return new UserProfile();
         }
 
         try {
-            return UserProfileDecoder.decodeUserProfile(Files.readAllLines(profilePath));
+            return UserProfileDecoder.decodeUserProfile(Files.readAllLines(profilePath), profilePath);
         } catch (FileNotFoundException fnfe) {
             throw new AssertionError("A non-existent file scenario is already handled earlier.");
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + profilePath);
-        } catch (IllegalValueException ive) {
-            throw new StorageOperationException("File contains illegal data values; data type constraints not met");
-        } catch (NullPointerException npe) {
-            throw new StorageOperationException("Empty Contents");
         }
     }
 
@@ -177,20 +211,18 @@ public class Storage {
      *
      * @throws StorageOperationException if there were errors reading and/or converting data from file.
      */
-    public MealList mealLoad() throws StorageOperationException {
+    public MealList loadMeals() throws StorageOperationException {
         mealListPath = Paths.get(MEAL_LIST_FILE_PATH);
         if (!Files.exists(mealListPath) || !Files.isRegularFile(mealListPath)) {
             return new MealList();
         }
 
         try {
-            return MealListDecoder.decodeMealList(Files.readAllLines(mealListPath));
+            return MealListDecoder.decodeMealList(Files.readAllLines(mealListPath), mealListPath);
         } catch (FileNotFoundException fnfe) {
             throw new AssertionError("A non-existent file scenario is already handled earlier.");
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + mealListPath);
-        } catch (IllegalValueException ive) {
-            throw new StorageOperationException("File contains illegal data values; data type constraints not met");
         }
     }
 
@@ -200,20 +232,39 @@ public class Storage {
      *
      * @throws StorageOperationException if there were errors reading and/or converting data from file.
      */
-    public WorkoutList workoutLoad() throws StorageOperationException {
+    public WorkoutList loadWorkouts() throws StorageOperationException {
         workoutListPath = Paths.get(WORKOUT_LIST_FILE_PATH);
         if (!Files.exists(workoutListPath) || !Files.isRegularFile(workoutListPath)) {
             return new WorkoutList();
         }
 
         try {
-            return WorkoutListDecoder.decodeWorkoutList(Files.readAllLines(workoutListPath));
+            return WorkoutListDecoder.decodeWorkoutList(Files.readAllLines(workoutListPath), workoutListPath);
         } catch (FileNotFoundException fnfe) {
             throw new AssertionError("A non-existent file scenario is already handled earlier.");
         } catch (IOException ioe) {
             throw new StorageOperationException("Error writing to file: " + workoutListPath);
-        } catch (IllegalValueException ive) {
-            throw new StorageOperationException("File contains illegal data values; data type constraints not met");
+        }
+    }
+
+    /**
+     * Loads the {@code StepList} data from this workout list storage file, and then returns it.
+     * Returns an empty {@code StepList} if the file does not exist, or is not a regular file.
+     *
+     * @throws StorageOperationException if there were errors reading and/or converting data from file.
+     */
+    public StepList loadSteps() throws StorageOperationException {
+        stepListPath = Paths.get(STEP_LIST_FILE_PATH);
+        if (!Files.exists(stepListPath) || !Files.isRegularFile(stepListPath)) {
+            return new StepList();
+        }
+
+        try {
+            return StepListDecoder.decodeStepList(Files.readAllLines(stepListPath), stepListPath);
+        } catch (FileNotFoundException fnfe) {
+            throw new AssertionError("A non-existent file scenario is already handled earlier.");
+        } catch (IOException ioe) {
+            throw new StorageOperationException("Error writing to file: " + stepListPath);
         }
     }
 
@@ -253,3 +304,4 @@ public class Storage {
         }
     }
 }
+// @@author

@@ -6,6 +6,7 @@ import fittrack.parser.PatternMatchFailException;
 
 import java.util.ArrayList;
 
+// @@author J0shuaLeong
 public class FindWorkoutCommand extends Command {
 
     public static final String COMMAND_WORD = "findworkout";
@@ -52,12 +53,8 @@ public class FindWorkoutCommand extends Command {
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser)
-            throws PatternMatchFailException {
-        if (args.isEmpty()) {
-            throw new PatternMatchFailException();
-        }
-        keyword = parser.parseFind(args);
+    public void setArguments(String args) throws PatternMatchFailException {
+        keyword = CommandParser.parseKeyword(args);
     }
 
     @Override
@@ -65,3 +62,4 @@ public class FindWorkoutCommand extends Command {
         return HELP;
     }
 }
+// @@author

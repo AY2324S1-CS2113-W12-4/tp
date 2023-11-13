@@ -1,6 +1,5 @@
 package fittrack.command;
 
-import fittrack.parser.CommandParser;
 import fittrack.parser.PatternMatchFailException;
 
 public class ViewWorkoutCommand extends Command {
@@ -28,7 +27,7 @@ public class ViewWorkoutCommand extends Command {
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser) throws PatternMatchFailException {
+    public void setArguments(String args) throws PatternMatchFailException {
         if (!args.isEmpty()) {
             throw new PatternMatchFailException();
         }

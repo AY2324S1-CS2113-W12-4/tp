@@ -15,7 +15,7 @@ public class HelpCommand extends Command {
     public static final String HELP = DESCRIPTION + "\n" + KNOWN_COMMANDS + "\n" + USAGE;
 
     private String helpMessage;
-    private Class<? extends Command> commandType;
+    private Class<? extends Command> commandType = null;
 
     public HelpCommand(String commandLine) {
         super(commandLine);
@@ -27,18 +27,18 @@ public class HelpCommand extends Command {
     }
 
     @Override
-    public void setArguments(String args, CommandParser parser) {
+    public void setArguments(String args) {
         if (args.isEmpty()) {
             helpMessage = HELP;
             return;
         }
 
-        String word = parser.getFirstWord(args);
+        String word = CommandParser.getFirstWord(args);
 
-        Command blankCommand = parser.getBlankCommand(word, commandLine);
+        Command blankCommand = CommandParser.getBlankCommand(word, commandLine);
         commandType = blankCommand.getClass();
 
-        if (blankCommand instanceof InvalidCommand) {
+        if (commandType == InvalidCommand.class) {
             helpMessage = InvalidCommand.getInvalidCommandMessage(word) + "\n" + USAGE;
             return;
         }
