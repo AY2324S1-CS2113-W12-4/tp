@@ -369,7 +369,8 @@ Total calories burnt on 2023-11-04: 230kcal
 ```
 
 
-### Checking calorie balance on a specific date: `caloriebalance`
+### Checking calorie balance on a specific date: `caloriesbalance`
+
 Allows user to check their calorie balance (surplus/deficit) on a specific date.
 
 Format
@@ -401,6 +402,15 @@ Try doing more exercise if you want to eat!
 Your calorie balance on 2023-11-07 is: 200.0kcal
 You are in a calorie deficit!
 You can try to eat more!
+```
+
+### Check the ideal weight range given current height: `checkrecommendedweight`
+Allows the user to check the ideal weight range given their current height. This is calculated based
+on a standard formula.
+
+**Example of usage**
+```
+checkrecommendedweight
 ```
 
 
