@@ -9,12 +9,15 @@ import java.util.Scanner;
  * Represents the user interface of FitTrack.
  */
 public class Ui {
+
+    // @@author J0shuaLeong
     private static final String LOGO = "___________.__  __ ___________                     __\n"
                                      + "\\_   _____/|__|/  |\\__    ___/___________    ____ |  | __\n"
                                      + " |    __)  |  \\   __\\|    |  \\_  __ \\__  \\ _/ ___\\|  |/ /\n"
                                      + " |     \\   |  ||  |  |    |   |  | \\/ __ \\  \\___|    <\n"
                                      + " \\___  /   |__||__|  |____|   |__|  (____  /\\___  >__|_ \\";
     private static final String LINE = "____________________________________________________________";
+    // @@author
 
     private final Scanner in;
 
@@ -77,6 +80,7 @@ public class Ui {
         System.out.println(commandResult.getFeedback());
     }
 
+    // @@author J0shuaLeong
     public void printWelcomeBackPrompt() {
         System.out.println("Welcome back! How can I help you today?");
         printLine();
@@ -86,6 +90,7 @@ public class Ui {
         System.out.println("Hello and welcome! How can I help you today?");
         printLine();
     }
+    // @@author
 
     /**
      * Prints the profile details of the user after user has
@@ -111,6 +116,7 @@ public class Ui {
         System.out.println(e.getMessage());
     }
 
+    // @@author J0shuaLeong
     public void printForceExit() {
         System.out.println("Please fix the corrupted file which can be found in" +
                 " data directory. Exiting the app...");
@@ -131,6 +137,7 @@ public class Ui {
         System.out.println(String.format(
                 "\nThe %s file is corrupted. Would you like to create a new one? (Y/N)", fileName));
     }
+    // @@author
 
     public static class ForceExitException extends RuntimeException {
     }

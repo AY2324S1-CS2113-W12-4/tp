@@ -82,6 +82,10 @@ public class FitTrack {
         save();
     }
 
+
+    /**
+     * Load all files into the program data if any and check if file corrupted.
+     */
     // @@author J0shuaLeong
     private void load() {
         try {
@@ -113,7 +117,7 @@ public class FitTrack {
         }
 
         if (userProfile == null) {
-            initUserProfile();
+            initUserProfile(); // Function called if user is using FitTrack for the first time
             ui.printPrompt();
         }
         if (mealList == null) {
@@ -129,6 +133,10 @@ public class FitTrack {
     }
     // @@author
 
+
+    /**
+     * Prompt user to enter profile settings if they are first time user.
+     */
     // @@author J0shuaLeong
     public void initUserProfile() {
         boolean isInputValid = false;
@@ -166,7 +174,7 @@ public class FitTrack {
             return new Storage();
         }
     }
-    // @@author J0shuaLeong
+    // @@author
 
     private void save() {
         try {

@@ -190,7 +190,7 @@ Type `checkrecommendedweight` calculate the recommended weight for your height.
 ____________________________________________________________
 Recommended Weight: 66.02 kg
 ____________________________________________________________
-`addsteps 2000 d/` is an invalid command. Steps must be a positive integer.
+`addsteps 2000 d/` is an invalid command. The input pattern is not valid.
 `addsteps` adds your step data to the list.
 Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
 Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
@@ -205,49 +205,45 @@ ____________________________________________________________
 `addsteps2000d/2023-11-11` is an invalid command.
 Type `help` or `help <COMMAND>` to view help.
 ____________________________________________________________
-`addsteps 200 d/2023-11` is an invalid command. Steps must be a positive integer.
+`addsteps 200 d/2023-11` is an invalid command. The date format is not valid.
 `addsteps` adds your step data to the list.
 Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
 Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
 ____________________________________________________________
-`addsteps 2000 2023-11-11` is an invalid command. Steps must be a positive integer.
+`addsteps 2000 2023-11-11` is an invalid command. The input pattern is not valid.
 `addsteps` adds your step data to the list.
 Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
 Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
 ____________________________________________________________
-`addsteps d/2023-11-11` is an invalid command. Steps must be a positive integer.
+`addsteps d/2023-11-11` is an invalid command. The input pattern is not valid.
 `addsteps` adds your step data to the list.
 Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
 Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
 ____________________________________________________________
-`addsteps 2000 d/2023-11-11` is an invalid command. Steps must be a positive integer.
-`addsteps` adds your step data to the list.
-Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
-Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
-You should type <DATE> in format of `yyyy-MM-dd`.
+I've added the following steps:
+[S] 2000 steps (2023-11-11)
 ____________________________________________________________
-`addsteps d/` is an invalid command. Steps must be a positive integer.
+`addsteps d/` is an invalid command. The input pattern is not valid.
 `addsteps` adds your step data to the list.
 Type `addsteps <NUMBER_OF_STEPS>` to add today's steps walked.
 Type `addsteps <NUMBER_OF_STEPS> d/<DATE>` to add an entry of the steps walked on that date.
 You should type <DATE> in format of `yyyy-MM-dd`.
 ____________________________________________________________
 These are the steps you have done:
-
+1.[S] 2000 steps (2023-11-11)
 ____________________________________________________________
 These are the steps you have done:
-
+1.[S] 2000 steps (2023-11-11)
 ____________________________________________________________
-`deletesteps 2` is an invalid command. Index out of range. List is empty!
+`deletesteps 2` is an invalid command. Index out of range. Index must be in the range of 1 and the list size!
 `deletesteps` deletes your steps entry from the list.
 Type `deletesteps <INDEX>` to delete the step entry by a index.
 ____________________________________________________________
-`deletesteps 1` is an invalid command. Index out of range. List is empty!
-`deletesteps` deletes your steps entry from the list.
-Type `deletesteps <INDEX>` to delete the step entry by a index.
+I've deleted the following step entry:
+[S] 2000 steps (2023-11-11)
 ____________________________________________________________
 These are the steps you have done:
 
@@ -258,7 +254,7 @@ help, exit,
 editprofile, viewprofile, bmi, checkrecommendedweight,
 addmeal, deletemeal, viewmeal, findmeal, caloriesconsumed,
 addworkout, deleteworkout, viewworkout, findworkout, caloriesburnt,
-addsteps, deletesteps, viewsteps, totalsteps
+caloriebalance, addsteps, deletesteps, viewsteps, totalsteps
 Type `help` or `help <COMMAND>` to view help.
 ____________________________________________________________
 `editprofile` allows you to edit your profile.

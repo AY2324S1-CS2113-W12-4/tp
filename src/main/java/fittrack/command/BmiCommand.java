@@ -2,6 +2,7 @@ package fittrack.command;
 
 import fittrack.parser.PatternMatchFailException;
 
+// @@author J0shuaLeong
 public class BmiCommand extends Command {
     public static final String COMMAND_WORD = "bmi";
     private static final String DESCRIPTION =
@@ -32,3 +33,4 @@ public class BmiCommand extends Command {
         return HELP;
     }
 }
+//@@author

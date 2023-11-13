@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+// @@author J0shuaLeong
 public class StepListDecoder {
     private static final Pattern STEP_PATTERN = Pattern.compile(
             "(?<steps>\\d+)\\s*\\|\\s*(?<date>\\d{4}-\\d{2}-\\d{2})"

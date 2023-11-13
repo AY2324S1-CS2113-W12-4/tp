@@ -3,6 +3,7 @@ package fittrack.command;
 import fittrack.UserProfile;
 import fittrack.parser.ParseException;
 
+//@@author J0shuaLeong
 public class EditProfileCommand extends Command {
     public static final String COMMAND_WORD = "editprofile";
     private static final String DESCRIPTION =
@@ -36,3 +37,4 @@ public class EditProfileCommand extends Command {
         return HELP;
     }
 }
+// @@author

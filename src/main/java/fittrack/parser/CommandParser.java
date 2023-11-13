@@ -6,6 +6,7 @@ import fittrack.command.AddWorkoutCommand;
 import fittrack.command.BmiCommand;
 import fittrack.command.CaloriesBurntCommand;
 import fittrack.command.CaloriesConsumedCommand;
+import fittrack.command.CalorieBalanceCommand;
 import fittrack.command.CheckRecommendedWeightCommand;
 import fittrack.command.Command;
 import fittrack.command.CommandResult;
@@ -15,7 +16,6 @@ import fittrack.command.EditProfileCommand;
 import fittrack.command.ExitCommand;
 import fittrack.command.FindMealCommand;
 import fittrack.command.FindWorkoutCommand;
-import fittrack.command.CalorieBalanceCommand;
 import fittrack.command.HelpCommand;
 import fittrack.command.InvalidCommand;
 import fittrack.command.TotalStepsCommand;
@@ -100,6 +100,8 @@ public class CommandParser {
             return new BmiCommand(commandLine);
         case CaloriesConsumedCommand.COMMAND_WORD:
             return new CaloriesConsumedCommand(commandLine);
+        case CalorieBalanceCommand.COMMAND_WORD:
+            return new CalorieBalanceCommand(commandLine);
         case CheckRecommendedWeightCommand.COMMAND_WORD:
             return new CheckRecommendedWeightCommand(commandLine);
         case CaloriesBurntCommand.COMMAND_WORD:
@@ -108,8 +110,6 @@ public class CommandParser {
             return new FindMealCommand(commandLine);
         case FindWorkoutCommand.COMMAND_WORD:
             return new FindWorkoutCommand(commandLine);
-        case CalorieBalanceCommand.COMMAND_WORD:
-            return new CalorieBalanceCommand(commandLine);
         case AddStepsCommand.COMMAND_WORD:
             return new AddStepsCommand(commandLine);
         case TotalStepsCommand.COMMAND_WORD:

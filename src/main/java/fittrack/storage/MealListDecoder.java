@@ -18,8 +18,12 @@ import java.util.regex.Pattern;
 
 // @@author J0shuaLeong
 public class MealListDecoder {
+
+    private static final String NAME_GRP = "name";
+    private static final String CALORIES_GRP = "calories";
+    private static final String DATE_GRP = "date";
     private static final Pattern MEAL_PATTERN = Pattern.compile(
-            "(?<name>\\S+)\\s*\\|\\s*(?<calories>\\S+)kcal\\s*\\|\\s*(?<date>\\S+)"
+            "(?<" + NAME_GRP + ">.+)\\s+\\|\\s+(?<" + CALORIES_GRP + ">\\S+)kcal\\s+\\|\\s+(?<" + DATE_GRP + ">\\S+)?"
     );
     private static final StorageOperationException CONTENT_CORRUPTION_EXCEPTION = new StorageOperationException(
             "Creating new meal list file..."
